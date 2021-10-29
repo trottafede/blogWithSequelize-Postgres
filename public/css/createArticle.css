@@ -1,0 +1,33 @@
+/* X-Small devices (portrait phones, less than 576px)
+ No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #tableroDeFormato {
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    background-color: rgb(217, 243, 209);
+  }
+
+  #tableroDeFormato span {
+    margin-right: 15px;
+    cursor: pointer;
+  }
+}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) {
+}

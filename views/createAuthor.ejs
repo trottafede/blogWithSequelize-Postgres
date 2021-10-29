@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lomo Blog - Create your author</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Bootstrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Fontawesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <%- include("partials/googleAnalytics") %>
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+
+    <div class="container mt-4 mb-4">
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <form
+            class="needs-validation"
+            action="/admin/createAuthor"
+            method="post"
+            novalidate
+          >
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input
+                required
+                maxlength="255"
+                minlength="4"
+                class="form-control"
+                type="text"
+                name="name"
+                id="name"
+              />
+
+              <div class="valid-feedback">name ok!</div>
+
+              <div class="invalid-feedback">
+                <p>Write your name</p>
+                <p>Max chars: 255</p>
+                <p>Min chars: 4</p>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="lastname" class="form-label">Lastname</label>
+              <input
+                required
+                maxlength="255"
+                minlength="4"
+                class="form-control"
+                type="text"
+                name="lastname"
+                id="lastname"
+              />
+
+              <div class="valid-feedback">lastname ok!</div>
+
+              <div class="invalid-feedback">
+                <p>Write your lastname</p>
+                <p>Max chars: 255</p>
+                <p>Min chars: 4</p>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">E-mail</label>
+              <input
+                required
+                maxlength="255"
+                minlength="5"
+                class="form-control"
+                type="email"
+                name="email"
+                id="email"
+                placeholder="youremail@gmail.com"
+              />
+
+              <div class="valid-feedback">Email ok!</div>
+
+              <div class="invalid-feedback">
+                <p>Write your email</p>
+                <p>Max chars: 255</p>
+                <p>Min chars: 5</p>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <button class="btn btn-primary" type="submit">
+                Create author
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include("partials/footer") %>
+
+    <!-- JS bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            "submit",
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lomo Blog - Admin</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Bootstrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Fontawesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
+    <%- include("partials/googleAnalytics") %>
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+
+    <div class="container mt-4 mb-4">
+      <div class="row">
+        <div class="col-lg-8">
+          <% if (blogs.length > 0) { %>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Image</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- if -->
+                <% blogs.forEach(function(singleBlog){ %>
+                <tr>
+                  <th scope="row"><%- singleBlog.id %></th>
+                  <td>
+                    <a href="/articulo/<%- singleBlog.id %>"
+                      ><%- singleBlog.title %></a
+                    >
+                  </td>
+                  <td>
+                    <ul>
+                      <%-singleBlog.author.firstname %>
+                      <%-singleBlog.author.lastname %>
+                    </ul>
+                  </td>
+                  <td>
+                    <img
+                      src="<%- singleBlog.image %>"
+                      width="auto"
+                      height="50px"
+                      alt="<% singleBlog.id %>"
+                    />
+                  </td>
+                  <td>
+                    <%- singleBlog.createdAt.toLocaleDateString('es-uy', {
+                    weekday:"long", year:"numeric", month:"long"}); %>
+                  </td>
+                  <td>
+                    <a
+                      href="/admin/updateArticle/<%- singleBlog.id %>"
+                      class="btn btn-outline-primary"
+                      >Update</a
+                    >
+                    <a
+                      href="/admin/deleteArticle/<%- singleBlog.id %>"
+                      class="btn btn-danger"
+                      >Delete</a
+                    >
+                  </td>
+                </tr>
+                <% }); %>
+                <!-- if -->
+              </tbody>
+            </table>
+          </div>
+          <% } else { %>
+          <h2 class="text-center">No hay contenido</h2>
+          <% } %>
+        </div>
+
+        <div class="col-lg-4 d-flex justify-content-center">
+          <div
+            class="btn-group"
+            role="group"
+            aria-label="Basic outlined example"
+          >
+            <div>
+              <a href="/admin/createArticle" class="btn btn-primary">
+                Create Article</a
+              >
+            </div>
+            <div class="ms-4">
+              <a href="/admin/createAuthor" class="btn btn-outline-danger">
+                New Author</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("partials/footer") %>
+
+    <!-- JS bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
