@@ -1,6 +1,5 @@
 const { Article, Comment, Author } = require("../models");
 const nodeMailer = require("../middlewares/nodemailer");
-const formidable = require("formidable");
 const slugify = require("slugify");
 
 module.exports = {
