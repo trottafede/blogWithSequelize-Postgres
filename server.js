@@ -5,8 +5,11 @@ const path = require("path");
 require("dotenv").config();
 
 const port = process.env.PORT || 8000;
+
 // const db = require("./models");
-// db.sequelize.sync({ force: true }).then(() => console.log("Tables have been created"));
+// db.sequelize
+//   .sync({ force: true })
+//   .then(() => console.log("Tables have been created"));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

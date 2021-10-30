@@ -1,6 +1,8 @@
 const { Article, Comment, Author } = require("../models");
 const nodeMailer = require("../middlewares/nodemailer");
 const formidable = require("formidable");
+const slugify = require("slugify");
+
 module.exports = {
   index: async (req, res) => {
     const articles = await Article.findAll({
@@ -17,9 +19,10 @@ module.exports = {
   },
 
   show: async (req, res) => {
-    let id = req.params.id;
+    const slug = req.params.slug;
 
-    const article = await Article.findByPk(id, {
+    const article = await Article.findOne({
+      where: { slug },
       include: [
         {
           model: Author,
@@ -29,6 +32,7 @@ module.exports = {
         },
       ],
     });
+
     res.render("article", {
       singleBlog: article,
     }); //View
@@ -54,9 +58,10 @@ module.exports = {
   },
 
   edit: async (req, res) => {
-    let id = req.params.id;
+    const slug = req.params.slug;
 
-    const singleBlog = await Article.findByPk(id, {
+    const singleBlog = await Article.findOne({
+      where: { slug },
       include: [
         {
           model: Author,
@@ -71,11 +76,11 @@ module.exports = {
   },
 
   destroy: async (req, res) => {
-    let id = req.params.id;
+    const slug = req.params.slug;
 
     await Article.destroy({
       where: {
-        id,
+        slug,
       },
     });
     res.redirect("/admin"); // View
@@ -83,18 +88,28 @@ module.exports = {
 
   update: async (req, res) => {
     const { title, content, image } = req.body;
-    const id = req.params.id;
+    const slug = req.params.slug;
+
+    let mySlug = slugify(title, {
+      replacement: "-", // replace spaces with replacement character, defaults to `-`
+      remove: undefined, // remove characters that match regex, defaults to `undefined`
+      lower: true, // convert to lower case, defaults to `false`
+      strict: true, // strip special characters except replacement, defaults to `false`
+      locale: "uy", // language code of the locale to use
+      trim: true, // trim leading and trailing replacement chars, defaults to `true`
+    });
 
     await Article.update(
       {
         title,
         content,
         image,
+        slug: mySlug,
         updated_at: Date.now(),
       },
       {
         where: {
-          id,
+          slug,
         },
       }
     );
@@ -105,24 +120,25 @@ module.exports = {
   store: async (req, res) => {
     let { title, content, author_id, image } = req.body;
 
-    // const form = formidable({
-    //   multiples: true,
-    //   uploadDir: __dirname + "/../public/img",
-    //   keepExtensions: true,
-    // });
-
-    // form.parse(req, (err, fields, files) => {
-    //   res.redirect("/admin");
-    // });
-
-    await nodeMailer(req.body);
+    let mySlug = slugify(title, {
+      replacement: "-", // replace spaces with replacement character, defaults to `-`
+      remove: undefined, // remove characters that match regex, defaults to `undefined`
+      lower: true, // convert to lower case, defaults to `false`
+      strict: true, // strip special characters except replacement, defaults to `false`
+      locale: "uy", // language code of the locale to use
+      trim: true, // trim leading and trailing replacement chars, defaults to `true`
+    });
 
     await Article.create({
       title: title,
       content: content,
       image: image,
       authorId: author_id,
+      slug: mySlug,
     });
+
+    await nodeMailer(req.body);
+
     res.redirect("/admin");
   },
   render: async (req, res) => {

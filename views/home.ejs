@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lomo Blog - Home</title>
-    <link rel="icon" href="/img/dog.png" />
+    <link rel="icon" href="/public/img/logo.jpg" />
     <link rel="stylesheet" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/home.css" />
@@ -41,7 +41,7 @@
           <% blogs.forEach(function(singleBlog){ %>
           <div class="col-lg-4 col-xl-3 singleBlog">
             <div class="imgContainer">
-              <a href="/articulo/<%- singleBlog.id %>">
+              <a href="/articulo/<%- singleBlog.slug %>">
                 <img
                   src="<%- singleBlog.image %>"
                   alt="<%- singleBlog.author %>"
@@ -61,7 +61,7 @@
                 weekday:"long", year:"numeric", month:"long"}); %></em
               >
             </p>
-            <a href="/articulo/<%- singleBlog.id %>">Read more</a>
+            <a href="/articulo/<%- singleBlog.slug %>">Read more</a>
           </div>
 
           <% }); %> <% } else { %>

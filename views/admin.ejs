@@ -49,7 +49,7 @@
                 <tr>
                   <th scope="row"><%- singleBlog.id %></th>
                   <td>
-                    <a href="/articulo/<%- singleBlog.id %>"
+                    <a href="/articulo/<%- singleBlog.slug %>"
                       ><%- singleBlog.title %></a
                     >
                   </td>
@@ -73,12 +73,12 @@
                   </td>
                   <td>
                     <a
-                      href="/admin/updateArticle/<%- singleBlog.id %>"
+                      href="/admin/updateArticle/<%- singleBlog.slug %>"
                       class="btn btn-outline-primary"
                       >Update</a
                     >
                     <a
-                      href="/admin/deleteArticle/<%- singleBlog.id %>"
+                      href="/admin/deleteArticle/<%- singleBlog.slug %>"
                       class="btn btn-danger"
                       >Delete</a
                     >
