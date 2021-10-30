@@ -1,5 +1,6 @@
 const { Article, Comment, Author } = require("../models");
 const nodeMailer = require("../middlewares/nodemailer");
+const formidable = require("formidable");
 module.exports = {
   index: async (req, res) => {
     const articles = await Article.findAll({
@@ -104,18 +105,25 @@ module.exports = {
   store: async (req, res) => {
     let { title, content, author_id, image } = req.body;
 
+    // const form = formidable({
+    //   multiples: true,
+    //   uploadDir: __dirname + "/../public/img",
+    //   keepExtensions: true,
+    // });
+
+    // form.parse(req, (err, fields, files) => {
+    //   res.redirect("/admin");
+    // });
+
     await nodeMailer(req.body);
 
-    Article.create({
+    await Article.create({
       title: title,
       content: content,
       image: image,
       authorId: author_id,
-    }).then((user) => {
-      res.redirect("/admin");
     });
-
-    // res.status(400).send("Hacker sorete no te metas");
+    res.redirect("/admin");
   },
   render: async (req, res) => {
     let users = await Author.findAll();

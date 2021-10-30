@@ -1,11 +1,5 @@
-/* @import url("singleArticle.css"); */
-:root {
-  --main-bg-color: rgba(8, 23, 241, 0.932);
-  --second-bg-color: #fff;
-  --hover-items: rgb(255, 0, 34);
-  --card-bg: #000;
-  --lettersColor: #fff;
-}
+@import "globalColors.css";
+
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   main h2 {
@@ -30,7 +24,6 @@
   }
 
   .singleBlog h3 {
-    color: red;
     text-align: center;
     font-size: 1.1rem;
     margin-bottom: 20px;

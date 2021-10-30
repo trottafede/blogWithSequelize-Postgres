@@ -37,6 +37,10 @@
             method="post"
             novalidate
           >
+            <!-- 
+            enctype="multipart/form-data"
+          -->
+
             <div class="mb-3">
               <label class="form-label" for="title">Ingrese titulo</label>
               <input
@@ -58,6 +62,16 @@
               </div>
             </div>
 
+            <!-- <div class="mb-3">
+              <label for="formFile" class="form-label">Upload an image</label>
+              <input
+                class="form-control"
+                type="file"
+                id="formFile"
+                name="image"
+              />
+            </div> -->
+
             <div class="mb-3">
               <label for="image" class="form-label"
                 >Ingrese la url de la imágen</label
@@ -73,7 +87,6 @@
               />
 
               <div class="valid-feedback">Imáge ok!</div>
-
               <div class="invalid-feedback">
                 <p>Must be an url image path</p>
                 <p>Max chars: 21844</p>

@@ -1,0 +1,11 @@
+:root {
+  --main-bg-color: rgba(228, 27, 250, 0.932);
+  --second-bg-color: #fff;
+  --hover-items: rgb(10, 81, 236);
+  --card-bg: #000;
+  --lettersColor: #fff;
+  --adminTable: rgb(217, 243, 209);
+  --singleAuthor: grey;
+
+  --userCommentBg: rgba(247, 224, 241, 0.938);
+}
