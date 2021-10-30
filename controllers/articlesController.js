@@ -39,6 +39,8 @@ module.exports = {
 
   AdminPage: async (req, res) => {
     const article = await Article.findAll({
+      limit: 200,
+      order: [["createdAt", "DESC"]],
       include: [
         {
           model: Author,
@@ -86,7 +88,7 @@ module.exports = {
   },
 
   update: async (req, res) => {
-    const { title, content, image } = req.body;
+    const { title, content, image, resume } = req.body;
     const slug = req.params.slug;
 
     let mySlug = slugify(title, {
@@ -104,6 +106,7 @@ module.exports = {
         content,
         image,
         slug: mySlug,
+        resume,
         updated_at: Date.now(),
       },
       {
@@ -117,7 +120,7 @@ module.exports = {
   },
 
   store: async (req, res) => {
-    let { title, content, author_id, image } = req.body;
+    let { title, image, author_id, content, resume } = req.body;
 
     let mySlug = slugify(title, {
       replacement: "-", // replace spaces with replacement character, defaults to `-`
@@ -129,11 +132,12 @@ module.exports = {
     });
 
     await Article.create({
-      title: title,
-      content: content,
-      image: image,
+      title,
+      content,
+      image,
       authorId: author_id,
       slug: mySlug,
+      resume,
     });
 
     await nodeMailer(req.body);

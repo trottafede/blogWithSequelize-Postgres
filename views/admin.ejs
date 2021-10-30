@@ -68,9 +68,10 @@
                     />
                   </td>
                   <td>
-                    <%- singleBlog.createdAt.toLocaleDateString('es-uy', {
-                    weekday:"long", year:"numeric", month:"long"}); %>
+                    <%- singleBlog.createdAt.toLocaleDateString('en-us'); %> <%-
+                    singleBlog.createdAt.toLocaleTimeString() %>
                   </td>
+
                   <td>
                     <a
                       href="/admin/updateArticle/<%- singleBlog.slug %>"

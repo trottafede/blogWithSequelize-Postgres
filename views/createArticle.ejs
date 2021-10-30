@@ -42,7 +42,9 @@
           -->
 
             <div class="mb-3">
-              <label class="form-label" for="title">Ingrese titulo</label>
+              <label class="form-label" for="title"
+                >Write your article title</label
+              >
               <input
                 required
                 maxlength="255"
@@ -53,29 +55,17 @@
                 id="title"
               />
 
-              <div class="valid-feedback">Titulo ok!</div>
+              <div class="valid-feedback">Title ok!</div>
 
               <div class="invalid-feedback">
-                <p>Max chars: 255</p>
-                <p>Min chars: 5</p>
-                <p>Title required</p>
+                <em>Max chars: 255</em><br />
+                <em>Min chars: 5</em><br />
+                <em>Title required</em>
               </div>
             </div>
 
-            <!-- <div class="mb-3">
-              <label for="formFile" class="form-label">Upload an image</label>
-              <input
-                class="form-control"
-                type="file"
-                id="formFile"
-                name="image"
-              />
-            </div> -->
-
             <div class="mb-3">
-              <label for="image" class="form-label"
-                >Ingrese la url de la imágen</label
-              >
+              <label for="image" class="form-label">Image URL path</label>
               <input
                 required
                 maxlength="21844"
@@ -88,9 +78,9 @@
 
               <div class="valid-feedback">Imáge ok!</div>
               <div class="invalid-feedback">
-                <p>Must be an url image path</p>
-                <p>Max chars: 21844</p>
-                <p>Min chars: 5</p>
+                <em>Must be an url image path</em> <br />
+                <em>Max chars: 21844</em> <br />
+                <em>Min chars: 5</em>
               </div>
             </div>
 
@@ -111,7 +101,6 @@
               </select>
 
               <div class="valid-feedback">Author ok!</div>
-
               <div class="invalid-feedback">
                 <p>Kindly select an author</p>
               </div>
@@ -119,17 +108,7 @@
 
             <div id="tableroDeFormato">
               <span id="parrafo"><i class="fas fa-code"></i> Párrafo</span>
-
               <span id="header"><i class="fas fa-heading"></i> Sub Titulo</span>
-              <!-- <span id="cAlign"
-                ><i class="fas fa-align-center"></i> Center text</span
-              >
-              <span id="rAlign"
-                ><i class="fas fa-align-right"></i> Right align</span
-              >
-              <span id="lAlign"
-                ><i class="fas fa-align-left"></i> Left align</span
-              > -->
               <span id="unorderedList"
                 ><i class="fas fa-list"></i> Unordered list</span
               >
@@ -139,14 +118,14 @@
             </div>
 
             <div class="mb-3">
-              <label class="form-label" for="content">Ingrese contenido</label>
+              <label class="form-label" for="content">Write your article</label>
 
               <textarea
                 class="form-control"
                 name="content"
                 id="content"
                 cols="30"
-                rows="10"
+                rows="20"
                 required
                 maxlength="21844"
                 minlength="5"
@@ -154,9 +133,42 @@
               <div class="valid-feedback">Content ok!</div>
 
               <div class="invalid-feedback">
-                <p>Máximos carácteres 21844</p>
-                <p>Minimos carácteres 5</p>
-                <p>Requerido</p>
+                <em>Máximos carácteres 21844</em>
+                <br />
+                <em>Minimos carácteres 5</em>
+                <br />
+                <em>Requerido</em>
+              </div>
+            </div>
+
+            <div id="resumeForm" class="mb-3">
+              <label class="form-label" for="resume"
+                >Write a resume of your article</label
+              >
+              <br />
+              <textarea
+                class="form-control"
+                name="resume"
+                id="resume"
+                cols="5"
+                rows="5"
+                required
+                maxlength="255"
+                minlength="5"
+              ></textarea>
+              <em>This resume will be displayed on the main screen</em>
+
+              <div class="valid-feedback"><em>Resume ok!</em></div>
+
+              <div class="invalid-feedback">
+                <em>Máximos carácteres 255</em>
+                <br />
+                <em>Minimos carácteres 5</em>
+                <br />
+                <em>
+                  Required. Kindly write your resume. It will be displayed on
+                  main screen!
+                </em>
               </div>
             </div>
 
@@ -226,15 +238,6 @@
         document
           .getElementById("orderedList")
           .addEventListener("click", handleOrdered);
-        // document
-        //   .getElementById("cAlign")
-        //   .addEventListener("click", handleCAlign);
-        // document
-        //   .getElementById("rAlign")
-        //   .addEventListener("click", handleRAlign);
-        // document
-        //   .getElementById("lAlign")
-        //   .addEventListener("click", handleLAlign);
       }
 
       const textArea = document.getElementById("content");
@@ -250,16 +253,6 @@
       function handleOrdered() {
         textArea.value += "<ol>\n  <li> </li> \n</ol> \n";
       }
-
-      // function handleCAlign() {
-      //   textArea.value += "<span class=`text-center`> </span> \n";
-      // }
-      // function handleRAlign() {
-      //   textArea.value += "<ol>\n  <li> </li> \n</ol> \n";
-      // }
-      // function handleLAlign() {
-      //   textArea.value += "<ol>\n  <li> </li> \n</ol> \n";
-      // }
     </script>
   </body>
 </html>

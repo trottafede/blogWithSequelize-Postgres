@@ -48,18 +48,19 @@
               </a>
             </div>
             <h3><%- singleBlog.title %></h3>
-            <div id="content"><%- singleBlog.content.substr(0,300)%></div>
-            <p>
-              <i
+            <div id="content"><%- singleBlog.resume%></div>
+            <div id="authorInfo">
+              <em
                 >Article made by: <%-singleBlog.author.firstname %> <%-
                 singleBlog.author.lastname %>
-              </i>
+              </em>
               <br />
               <em
                 ><%- singleBlog.createdAt.toLocaleDateString('en-us', {
-                weekday:"long", year:"numeric", month:"long"}); %></em
-              >
-            </p>
+                weekday:"long", year:"numeric", month:"long"}); %>
+                <%-singleBlog.createdAt.toLocaleTimeString() %>
+              </em>
+            </div>
             <a href="/articulo/<%- singleBlog.slug %>">Read more</a>
           </div>
 

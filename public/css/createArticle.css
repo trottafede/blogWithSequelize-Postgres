@@ -12,6 +12,13 @@
     display: block;
     margin-bottom: 15px;
   }
+  #resumeForm {
+    margin-top: 20px;
+  }
+  #resumeForm em {
+    color: blue;
+    font-size: 0.94rem;
+  }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -25,6 +32,13 @@
   #tableroDeFormato span {
     margin-right: 15px;
     cursor: pointer;
+  }
+  #resumeForm {
+    margin-top: 20px;
+  }
+  #resumeForm em {
+    color: blue;
+    font-size: 0.94rem;
   }
 }
 
@@ -41,6 +55,13 @@
     margin-right: 15px;
     cursor: pointer;
   }
+  #resumeForm {
+    margin-top: 20px;
+  }
+  #resumeForm em {
+    color: blue;
+    font-size: 0.94rem;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -56,6 +77,15 @@
     margin-right: 15px;
     cursor: pointer;
   }
+
+  #resumeForm {
+    margin-top: 20px;
+  }
+
+  #resumeForm em {
+    color: blue;
+    font-size: 0.94rem;
+  }
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -70,5 +100,13 @@
   #tableroDeFormato span {
     margin-right: 15px;
     cursor: pointer;
+  }
+
+  #resumeForm {
+    margin-top: 20px;
+  }
+  #resumeForm em {
+    color: blue;
+    font-size: 0.94rem;
   }
 }

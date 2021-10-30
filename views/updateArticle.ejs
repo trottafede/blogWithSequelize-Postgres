@@ -41,7 +41,9 @@
               <%-singleBlog.author.firstname %> <%-singleBlog.author.lastname %>
             </p>
             <div class="mb-3">
-              <label class="form-label" for="title">Ingrese titulo</label>
+              <label class="form-label" for="title"
+                >Write your article title</label
+              >
               <input
                 required
                 maxlength="255"
@@ -53,19 +55,17 @@
                 value="<%- singleBlog.title %>"
               />
 
-              <div class="valid-feedback">Titulo ok!</div>
+              <div class="valid-feedback">Title ok!</div>
 
               <div class="invalid-feedback">
-                <p>Max chars 21844</p>
-                <p>Min chars 5</p>
-                <p>required</p>
+                <em>Max chars: 255</em><br />
+                <em>Min chars: 5</em><br />
+                <em>Title required</em>
               </div>
             </div>
 
             <div class="mb-3">
-              <label for="image" class="form-label"
-                >Ingrese la url de la imágen</label
-              >
+              <label for="image" class="form-label">Image URL path</label>
               <input
                 required
                 maxlength="21844"
@@ -78,11 +78,10 @@
               />
 
               <div class="valid-feedback">Imáge ok!</div>
-
               <div class="invalid-feedback">
-                <p>Must be an url image path</p>
-                <p>Max chars 21844</p>
-                <p>Min chars 5</p>
+                <em>Must be an url image path</em> <br />
+                <em>Max chars: 21844</em> <br />
+                <em>Min chars: 5</em>
               </div>
             </div>
 
@@ -98,13 +97,13 @@
             </div>
 
             <div class="mb-3">
-              <label class="form-label" for="content">Ingrese contenido</label>
+              <label class="form-label" for="content">Write your article</label>
               <textarea
                 class="form-control"
                 name="content"
                 id="content"
                 cols="30"
-                rows="10"
+                rows="20"
                 required
                 maxlength="21844"
                 minlength="5"
@@ -113,13 +112,48 @@
               >
 
               <div class="valid-feedback">Content ok!</div>
-
               <div class="invalid-feedback">
-                <p>Máximos carácteres 21844</p>
-                <p>Minimos carácteres 5</p>
-                <p>Requerido</p>
+                <em>Máximos carácteres 21844</em>
+                <br />
+                <em>Minimos carácteres 5</em>
+                <br />
+                <em>Requerido</em>
               </div>
             </div>
+
+            <div id="resumeForm" class="mb-3">
+              <label class="form-label" for="resume"
+                >Write a resume of your article</label
+              >
+              <br />
+              <textarea
+                class="form-control"
+                name="resume"
+                id="resume"
+                cols="5"
+                rows="5"
+                required
+                maxlength="255"
+                minlength="5"
+              >
+<%- singleBlog.resume %></textarea
+              >
+              <em>This resume will be displayed on the main screen</em>
+
+              <div class="valid-feedback"><em>Resume ok!</em></div>
+
+              <div class="invalid-feedback">
+                <em>Máximos carácteres 255</em>
+                <br />
+                <em>Minimos carácteres 5</em>
+                <br />
+                <em>
+                  Required. Kindly write your resume. It will be displayed on
+                  main screen!
+                </em>
+              </div>
+            </div>
+
             <div class="mb-3">
               <button class="btn btn-primary" type="submit">
                 Update Article

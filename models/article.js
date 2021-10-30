@@ -16,16 +16,22 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         field: "title",
       },
+      image: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+        field: "image",
+      },
       content: {
         type: DataTypes.TEXT,
         allowNull: false,
         unique: true,
         field: "content",
       },
-      image: {
-        type: DataTypes.TEXT,
+      resume: {
+        type: DataTypes.STRING,
         allowNull: false,
-        field: "image",
+        unique: true,
+        field: "resume",
       },
       slug: {
         type: DataTypes.STRING,

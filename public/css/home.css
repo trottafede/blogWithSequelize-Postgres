@@ -174,8 +174,10 @@
     padding: 10px;
   }
   .singleBlog #content {
-    font-size: 0.94rem;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
   }
+
   .imgContainer {
     display: flex;
     justify-content: center;
@@ -201,5 +203,10 @@
   .singleBlog h3 {
     text-align: center;
     font-size: 1.2rem;
+  }
+
+  .singleBlog #authorInfo {
+    font-size: 0.94rem;
+    margin-bottom: 10px;
   }
 }
