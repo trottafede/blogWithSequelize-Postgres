@@ -8,8 +8,9 @@
   }
 
   #tableroDeFormato span {
-    margin-right: 15px;
-    cursor: pointer;
+    text-align: center;
+    display: block;
+    margin-bottom: 15px;
   }
 }
 /* Small devices (landscape phones, 576px and up) */
