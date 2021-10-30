@@ -86,31 +86,19 @@
               </div>
             </div>
 
+            <div id="tableroDeFormato">
+              <span id="parrafo"><i class="fas fa-code"></i> Párrafo</span>
+              <span id="header"><i class="fas fa-heading"></i> Sub Titulo</span>
+              <span id="unorderedList"
+                ><i class="fas fa-list"></i> Unordered list</span
+              >
+              <span id="orderedList"
+                ><i class="fas fa-list-ol"></i> Ordered list</span
+              >
+            </div>
+
             <div class="mb-3">
               <label class="form-label" for="content">Ingrese contenido</label>
-              <div id="tableroDeFormato">
-                <span id="parrafo"><i class="fas fa-code"></i> Párrafo</span>
-
-                <span id="header"
-                  ><i class="fas fa-heading"></i> Sub Titulo</span
-                >
-                <!-- <span id="cAlign"
-                  ><i class="fas fa-align-center"></i> Center text</span
-                >
-                <span id="rAlign"
-                  ><i class="fas fa-align-right"></i> Right align</span
-                >
-                <span id="lAlign"
-                  ><i class="fas fa-align-left"></i> Left align</span
-                > -->
-                <span id="unorderedList"
-                  ><i class="fas fa-list"></i> Unordered list</span
-                >
-                <span id="orderedList"
-                  ><i class="fas fa-list-ol"></i> Ordered list</span
-                >
-              </div>
-
               <textarea
                 class="form-control"
                 name="content"
@@ -193,15 +181,6 @@
         document
           .getElementById("orderedList")
           .addEventListener("click", handleOrdered);
-        // document
-        //   .getElementById("cAlign")
-        //   .addEventListener("click", handleCAlign);
-        // document
-        //   .getElementById("rAlign")
-        //   .addEventListener("click", handleRAlign);
-        // document
-        //   .getElementById("lAlign")
-        //   .addEventListener("click", handleLAlign);
       }
 
       const textArea = document.getElementById("content");
@@ -217,16 +196,6 @@
       function handleOrdered() {
         textArea.value += "<ol>\n  <li> </li> \n</ol> \n";
       }
-
-      // function handleCAlign() {
-      //   textArea.value += "<span class=`text-center`> </span> \n";
-      // }
-      // function handleRAlign() {
-      //   textArea.value += "<ol>\n  <li> </li> \n</ol> \n";
-      // }
-      // function handleLAlign() {
-      //   textArea.value += "<ol>\n  <li> </li> \n</ol> \n";
-      // }
     </script>
   </body>
 </html>

@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lomo Blog - <%- singleBlog.title %></title>
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/singleArticle.css" />
+    <link rel="stylesheet" href="/css/navbar.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
     <!-- Bootstrap css -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
@@ -27,37 +29,37 @@
     <!-- if -->
     <% if (singleBlog) { %>
     <!-- if single article -->
-    <div id="SingleArticle" class="container">
+    <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1><%- singleBlog.title %></h1>
-        </div>
-
-        <div class="col-md-12">
-          <div id="imgContainer">
-            <img
-              src="<%- singleBlog.image %> "
-              alt="<%- singleBlog.title %> "
-            />
+        <div id="SingleArticle">
+          <div class="col-md-12">
+            <h2><%- singleBlog.title %></h2>
           </div>
-        </div>
-        <div class="col-md-12">
-          <p><%- singleBlog.content %></p>
-        </div>
-
-        <div class="col-md-12">
-          <p id="author">
-            <i
-              >This article was made by <%-singleBlog.author.firstname %> <%-
-              singleBlog.author.lastname %>
-            </i>
-          </p>
+          <div class="col-md-12">
+            <div id="imgContainer">
+              <img
+                src="<%- singleBlog.image %> "
+                alt="<%- singleBlog.title %> "
+              />
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div id="content"><%- singleBlog.content %></div>
+          </div>
+          <div class="col-md-12">
+            <p id="author">
+              <i
+                >This article was made by <%-singleBlog.author.firstname %> <%-
+                singleBlog.author.lastname %>
+              </i>
+            </p>
+          </div>
         </div>
 
         <% if (singleBlog.comments.length > 0) { %>
-        <div id="listComments" class="col-md-12">
+        <div class="col-md-12">
           <% singleBlog.comments.forEach(function(comment){ %>
-          <div id="userComment" class="mb-3">
+          <div id="userComment">
             <h6><%-comment.name %></h6>
             <p><%-comment.content %></p>
           </div>
@@ -97,11 +99,11 @@
                 </div>
               </div>
               <div class="mb-3">
-                <label class="form-label" for="content">Comentario</label>
+                <label class="form-label" for="comentario">Comentario</label>
                 <textarea
                   required
                   class="form-control"
-                  id="content"
+                  id="comentario"
                   name="content"
                   rows="4"
                   required

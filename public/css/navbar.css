@@ -5,28 +5,29 @@
   --card-bg: #000;
   --lettersColor: #fff;
 }
-/* Dispositivos re chiquitos */
-header {
-  background-color: var(--main-bg-color);
-  color: var(--lettersColor);
-}
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  header {
+    background-color: var(--main-bg-color);
+    color: var(--lettersColor);
+  }
 
-header h1 {
-  text-align: center;
-  font-size: 1.4rem;
-  padding: 20px 0;
-}
+  header h1 {
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 20px 0;
+  }
 
-header i {
-  margin-left: 10px;
+  header i {
+    margin-left: 10px;
+  }
+  nav i {
+    font-size: 1.5rem;
+    color: var(--lettersColor);
+  }
 }
-nav i {
-  font-size: 1.5rem;
-  color: var(--lettersColor);
-}
-
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 767.98px) {
   header {
     background-color: var(--main-bg-color);
     color: var(--lettersColor);
@@ -49,7 +50,7 @@ nav i {
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 991.98px) {
   header {
     background-color: var(--main-bg-color);
     color: var(--lettersColor);
@@ -71,8 +72,32 @@ nav i {
   }
 }
 
-/* Laptop size */
-@media (min-width: 992px) {
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  header {
+    background-color: var(--main-bg-color);
+    color: var(--lettersColor);
+  }
+
+  header h1 {
+    text-align: center;
+    font-size: 2rem;
+    padding: 20px 0;
+  }
+
+  nav i {
+    font-size: 1.2rem;
+    padding-right: 0.8rem;
+    color: var(--lettersColor);
+  }
+
+  nav i:hover {
+    color: var(--hover-items);
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
   header {
     background-color: var(--main-bg-color);
     color: var(--lettersColor);
