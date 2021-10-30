@@ -23,9 +23,9 @@
   }
 
   .singleBlog img {
-    width: 400px;
+    width: 340px;
     height: auto;
-    max-height: 500px;
+    max-height: 400px;
     border-bottom-left-radius: 100px;
   }
 
