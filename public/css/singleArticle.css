@@ -12,8 +12,9 @@
   }
 
   #SingleArticle img {
-    width: auto;
-    height: 500px;
+    width: 400px;
+    height: auto;
+    max-height: 400px;
   }
 
   #SingleArticle #content,
@@ -69,8 +70,9 @@
   }
 
   #SingleArticle img {
-    width: auto;
-    height: 500px;
+    width: 500px;
+    height: auto;
+    max-height: 400px;
   }
 
   #SingleArticle #content,
