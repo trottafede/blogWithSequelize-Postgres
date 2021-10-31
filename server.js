@@ -16,10 +16,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-// routes(app);
-const publicRoutes = require("./routes/publicRoutes");
-const privateRoutes = require("./routes/privateRoutes");
-app.use("/admin", privateRoutes);
-app.use(publicRoutes);
+routes(app);
 
 app.listen(port, () => console.log(`listening on http://localhost:${port}`));
