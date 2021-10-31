@@ -3,7 +3,7 @@ const nodeMailer = require("../middlewares/nodemailer");
 const slugify = require("slugify");
 
 module.exports = {
-  indexAdmin: async (req, res) => {
+  index: async (req, res) => {
     const article = await Article.findAll({
       limit: 200,
       order: [["createdAt", "DESC"]],
