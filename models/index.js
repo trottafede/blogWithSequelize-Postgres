@@ -4,7 +4,7 @@ require("dotenv").config();
 const Sequelize = require("sequelize");
 const CommentModel = require("./comment.js");
 const ArticleModel = require("./article.js");
-const AuthorModel = require("./author.js");
+const UserModel = require("./user.js");
 
 const sequelize = new Sequelize(
   process.env.DB_USER,
@@ -20,10 +20,10 @@ const sequelize = new Sequelize(
 
 const Comment = CommentModel(sequelize, Sequelize);
 const Article = ArticleModel(sequelize, Sequelize);
-const Author = AuthorModel(sequelize, Sequelize);
+const User = UserModel(sequelize, Sequelize);
 
-Article.belongsTo(Author, { onDelete: "cascade" });
-Author.hasMany(Article);
+Article.belongsTo(User, { onDelete: "cascade" });
+User.hasMany(Article);
 
 Comment.belongsTo(Article, { onDelete: "cascade" });
 Article.hasMany(Comment);
@@ -33,5 +33,5 @@ module.exports = {
   Sequelize,
   Comment,
   Article,
-  Author,
+  User,
 };

@@ -37,7 +37,7 @@
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Title</th>
-                  <th scope="col">Author</th>
+                  <th scope="col">User</th>
                   <th scope="col">Image</th>
                   <th scope="col">Date</th>
                   <th scope="col">Actions</th>
@@ -47,7 +47,7 @@
                 <!-- if -->
                 <% blogs.forEach(function(singleBlog){ %>
                 <tr>
-                  <th scope="row"><%- singleBlog.id %></th>
+                  <td scope="row"><%- singleBlog.id %></td>
                   <td>
                     <a href="/article/<%- singleBlog.slug %>"
                       ><%- singleBlog.title %></a
@@ -55,8 +55,8 @@
                   </td>
                   <td>
                     <ul>
-                      <%-singleBlog.author.firstname %>
-                      <%-singleBlog.author.lastname %>
+                      <%-singleBlog.user.firstname %>
+                      <%-singleBlog.user.lastname %>
                     </ul>
                   </td>
                   <td>
@@ -101,11 +101,9 @@
               Create Article</a
             >
           </div>
-          <div class="mb-3 text-center">
-            <a href="/admin/createAuthor" class="btn btn-outline-danger">
-              New Author</a
-            >
-          </div>
+          <!-- <div class="mb-3 text-center">
+            <a href="/signup" class="btn btn-outline-danger"> New User</a>
+          </div> -->
         </div>
       </div>
     </div>

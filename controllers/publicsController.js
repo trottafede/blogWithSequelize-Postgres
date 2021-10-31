@@ -1,4 +1,4 @@
-const { Article, Comment, Author } = require("../models");
+const { Article, Comment, User } = require("../models");
 
 module.exports = {
   index: async (req, res) => {
@@ -7,7 +7,7 @@ module.exports = {
       order: [["createdAt", "DESC"]],
       include: [
         {
-          model: Author,
+          model: User,
         },
       ],
     });
@@ -21,7 +21,7 @@ module.exports = {
       where: { slug },
       include: [
         {
-          model: Author,
+          model: User,
         },
         {
           model: Comment,
@@ -60,14 +60,44 @@ module.exports = {
     res.json(articles);
   },
 
-  createSignUp: async (req, res) => {
-    res.render("signUpForm");
+  createSignUp: async (req, res) => {},
+  createUser: (req, res) => {
+    res.render("createUser");
   },
-  storeSignUp: async (req, res) => {
-    console.log(req.body);
+  storeUser: async (req, res) => {
+    let { name, lastname, email, password } = req.body;
+    User.create({
+      firstname: name,
+      lastname,
+      email,
+      password,
+    }).then((user) => {
+      res.redirect("/admin");
+    });
+
+    // res.status(400).send("Hacker sorete no te metas");
+  },
+
+  storeSignUp: async (req, res) => {},
+
+  createLogIn: async (req, res) => {
+    res.render("loginForm");
+  },
+
+  storeLogIn: async (req, res) => {
     const { email, password } = req.body;
+
+    User.findOne({ where: { email } }).then(async function (user) {
+      if (!user) {
+        res.redirect("/signup");
+      } else if (!(await user.validPassword(password))) {
+        res.redirect("/login");
+      } else {
+        // req.session.user = user.dataValues;
+        res.redirect("/");
+      }
+    });
   },
-  createLogIn: async (req, res) => {},
-  storeLogIn: async (req, res) => {},
+
   logOut: async (req, res) => {},
 };

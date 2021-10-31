@@ -4,10 +4,12 @@ const publicsController = require("../controllers/publicsController");
 
 publicRouter.get("/", publicsController.index);
 
-publicRouter.get("/signUp", publicsController.createSignUp);
-publicRouter.post("/signUp", publicsController.storeSignUp);
-publicRouter.get("/logIn", publicsController.createLogIn);
-publicRouter.post("/logIn", publicsController.storeLogIn);
+publicRouter.get("/signup", publicsController.createUser);
+publicRouter.post("/signup", publicsController.storeUser);
+
+publicRouter.get("/login", publicsController.createLogIn);
+publicRouter.post("/login", publicsController.storeLogIn);
+
 publicRouter.get("/logOut", publicsController.logOut);
 
 publicRouter.get("/article/:slug", publicsController.show);

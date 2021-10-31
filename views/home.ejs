@@ -43,16 +43,16 @@
               <a href="/article/<%- singleBlog.slug %>">
                 <img
                   src="<%- singleBlog.image %>"
-                  alt="<%- singleBlog.author %>"
+                  alt="<%- singleBlog.user %>"
                 />
               </a>
             </div>
             <h3><%- singleBlog.title %></h3>
             <div id="content"><%- singleBlog.resume%></div>
-            <div id="authorInfo">
+            <div id="userInfo">
               <em
-                >Article made by: <%-singleBlog.author.firstname %> <%-
-                singleBlog.author.lastname %>
+                >Article made by: <%-singleBlog.user.firstname %> <%-
+                singleBlog.user.lastname %>
               </em>
               <br />
               <em

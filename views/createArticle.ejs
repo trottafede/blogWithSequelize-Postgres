@@ -85,8 +85,8 @@
             </div>
 
             <div class="mb-3">
-              <label for="author" class="form-label">Author</label>
-              <select class="form-select" name="author_id" id="author">
+              <label for="user" class="form-label">User</label>
+              <select class="form-select" name="user_id" id="user">
                 <ul>
                   <% if (users) { %>
                   <!--  -->
@@ -100,9 +100,9 @@
                 </ul>
               </select>
 
-              <div class="valid-feedback">Author ok!</div>
+              <div class="valid-feedback">User ok!</div>
               <div class="invalid-feedback">
-                <p>Kindly select an author</p>
+                <p>Kindly select an user</p>
               </div>
             </div>
 
@@ -183,8 +183,7 @@
     </div>
     <% } else { %>
     <h3 class="text-center">
-      Must create an <a href="/admin/createAuthor">author</a> before create an
-      article
+      Must create an <a href="/signup">user</a> before create an article
     </h3>
     <% } %> <%- include("partials/footer") %>
 

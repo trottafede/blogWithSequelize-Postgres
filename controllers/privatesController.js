@@ -1,4 +1,4 @@
-const { Article, Comment, Author } = require("../models");
+const { Article, Comment, User } = require("../models");
 const nodeMailer = require("../middlewares/nodemailer");
 const slugify = require("slugify");
 
@@ -9,7 +9,7 @@ module.exports = {
       order: [["createdAt", "DESC"]],
       include: [
         {
-          model: Author,
+          model: User,
         },
         {
           model: Comment,
@@ -20,21 +20,18 @@ module.exports = {
     res.render("admin", {
       blogs: article,
       comments: article,
-      authors: article,
+      users: article,
     });
   },
   // show: (req, res) => {},
 
   createArticle: async (req, res) => {
-    let users = await Author.findAll();
+    let users = await User.findAll();
     res.render("createArticle", { users });
-  },
-  createAuthor: (req, res) => {
-    res.render("createAuthor");
   },
 
   storeArticle: async (req, res) => {
-    let { title, image, author_id, content, resume } = req.body;
+    let { title, image, user_id, content, resume } = req.body;
 
     let mySlug = slugify(title, {
       replacement: "-", // replace spaces with replacement character, defaults to `-`
@@ -49,7 +46,7 @@ module.exports = {
       title,
       content,
       image,
-      authorId: author_id,
+      userId: user_id,
       slug: mySlug,
       resume,
     });
@@ -57,19 +54,6 @@ module.exports = {
     await nodeMailer(req.body);
 
     res.redirect("/admin");
-  },
-  storeAuthor: async (req, res) => {
-    let { name, lastname, email, password } = req.body;
-    Author.create({
-      firstname: name,
-      lastname,
-      email,
-      password,
-    }).then((user) => {
-      res.redirect("/admin");
-    });
-
-    // res.status(400).send("Hacker sorete no te metas");
   },
 
   editArticle: async (req, res) => {
@@ -79,7 +63,7 @@ module.exports = {
       where: { slug },
       include: [
         {
-          model: Author,
+          model: User,
         },
         {
           model: Comment,
@@ -87,7 +71,7 @@ module.exports = {
       ],
     });
 
-    res.render("updateArticle", { singleBlog, author: singleBlog });
+    res.render("updateArticle", { singleBlog, user: singleBlog });
   },
   updateArticle: async (req, res) => {
     const { title, content, image, resume } = req.body;

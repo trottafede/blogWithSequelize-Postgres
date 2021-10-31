@@ -2,8 +2,8 @@
 const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, DataTypes) => {
-  const Author = sequelize.define(
-    "author",
+  const User = sequelize.define(
+    "user",
     {
       id: {
         type: DataTypes.INTEGER,
@@ -48,14 +48,14 @@ module.exports = (sequelize, DataTypes) => {
           user.password = await bcrypt.hash(user.password, salt);
         },
       },
-      instanceMethods: {
-        validPassword: async function (password) {
-          return await bcrypt.compare(password, this.password);
-        },
-      },
     },
-    { tableName: "authors" }
+
+    { tableName: "users" }
   );
 
-  return Author;
+  User.prototype.validPassword = async function (password) {
+    return await bcrypt.compare(password, this.password);
+  };
+
+  return User;
 };

@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 module.exports = async function nodeMailer(body) {
-  let { title, content, author, image } = body;
+  let { title, content, user, image } = body;
 
   // Nodemail
 
@@ -19,7 +19,7 @@ module.exports = async function nodeMailer(body) {
 
   let textToSend = `
         Se creó un article con el titulo: ${title}.
-        El autor del article es: ${author}
+        El autor del article es: ${user}
         Imágen de perfil: ${image}
         El contendio de dicho article es:
         ${content}. 
