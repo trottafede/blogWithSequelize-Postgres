@@ -34,7 +34,7 @@ const privatesController = require("../controllers/privatesController");
 // );
 
 // ---------------------------------------------------------
-adminRouter.get("", privatesController.index);
+adminRouter.get("/", privatesController.index);
 
 adminRouter.get("/updateArticle/:slug", privatesController.editArticle);
 adminRouter.post("/updateArticle/:slug", privatesController.updateArticle);
