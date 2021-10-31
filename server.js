@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const path = require("path");
-const routes = require("./routes");
+const routes = require("./publicRoutes");
 
 const port = process.env.PORT || 8000;
 
@@ -16,6 +16,6 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
-routes(app);
+app.use(routes);
 
 app.listen(port, () => console.log(`listening on http://localhost:${port}`));
