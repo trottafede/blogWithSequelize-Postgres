@@ -4,7 +4,7 @@ const router = express.Router();
 const publicsController = require("./controllers/publicsController");
 const privatesController = require("./controllers/privatesController");
 
-router.get("/", publicsController.index);
+router.get("/", publicsController.indexHome);
 router.get("/signup", publicsController.createUser);
 router.post("/signup", publicsController.storeUser);
 router.get("/login", publicsController.createLogIn);
@@ -14,7 +14,7 @@ router.get("/article/:slug", publicsController.show);
 router.post("/comment/:slug", publicsController.storeComment);
 router.get("/api/articles", publicsController.ApiArticles);
 
-router.get("/admin", privatesController.index);
+router.get("/admin", privatesController.indexAdmin);
 router.get("/admin/updateArticle/:slug", privatesController.editArticle);
 router.post("/admin/updateArticle/:slug", privatesController.updateArticle);
 router.get("/admin/createArticle", privatesController.createArticle);

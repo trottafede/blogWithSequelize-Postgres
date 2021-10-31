@@ -1,7 +1,7 @@
 const { Article, Comment, User } = require("../models");
 
 module.exports = {
-  index: async (req, res) => {
+  indexHome: async (req, res) => {
     const articles = await Article.findAll({
       limit: 200,
       order: [["createdAt", "DESC"]],
