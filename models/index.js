@@ -1,5 +1,5 @@
-"use strict";
-
+require("dotenv").config();
+("use strict");
 const Sequelize = require("sequelize");
 const CommentModel = require("./comment.js");
 const ArticleModel = require("./article.js");
