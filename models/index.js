@@ -4,6 +4,7 @@ const Sequelize = require("sequelize");
 const CommentModel = require("./comment.js");
 const ArticleModel = require("./article.js");
 const UserModel = require("./user.js");
+const pg = require("pg");
 
 const sequelize = new Sequelize(
   process.env.DB_USER,
@@ -13,6 +14,7 @@ const sequelize = new Sequelize(
     dialect: "postgres",
     host: process.env.DB_HOST,
     port: process.env.DB_PORT,
+    dialectModule: pg,
     logging: false, //Disable sequelize from loggin to the CLI
   }
 );
