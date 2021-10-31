@@ -18,10 +18,10 @@ module.exports = async function nodeMailer(body) {
   });
 
   let textToSend = `
-        Se creó un articulo con el titulo: ${title}.
-        El autor del articulo es: ${author}
+        Se creó un article con el titulo: ${title}.
+        El autor del article es: ${author}
         Imágen de perfil: ${image}
-        El contendio de dicho articulo es:
+        El contendio de dicho article es:
         ${content}. 
       `;
   const mailOptions = {

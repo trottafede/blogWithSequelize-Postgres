@@ -1,0 +1,78 @@
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  #signUpForm {
+    display: flex;
+    justify-content: center;
+  }
+  #signUpForm div {
+    text-align: center;
+    margin: 30px 0;
+    width: 330px;
+  }
+  #signUpForm button {
+    width: 200px;
+  }
+}
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  #signUpForm {
+    display: flex;
+    justify-content: center;
+  }
+  #signUpForm div {
+    text-align: center;
+    margin: 30px 0;
+    width: 500px;
+  }
+  #signUpForm button {
+    width: 400px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  #signUpForm {
+    display: flex;
+    justify-content: center;
+  }
+  #signUpForm div {
+    text-align: center;
+    margin: 30px 0;
+    width: 600px;
+  }
+  #signUpForm button {
+    width: 300px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  #signUpForm {
+    display: flex;
+    justify-content: center;
+  }
+  #signUpForm div {
+    text-align: center;
+    margin: 30px 0;
+    width: 600px;
+  }
+  #signUpForm button {
+    width: 300px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #signUpForm {
+    display: flex;
+    justify-content: center;
+  }
+  #signUpForm div {
+    text-align: center;
+    margin: 30px 0;
+    width: 600px;
+  }
+  #signUpForm button {
+    width: 300px;
+  }
+}

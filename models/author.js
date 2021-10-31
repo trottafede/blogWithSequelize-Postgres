@@ -1,4 +1,5 @@
 "use strict";
+const bcrypt = require("bcryptjs");
 
 module.exports = (sequelize, DataTypes) => {
   const Author = sequelize.define(
@@ -26,6 +27,11 @@ module.exports = (sequelize, DataTypes) => {
         unique: true,
         field: "email",
       },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        field: "password",
+      },
       createdAt: {
         type: DataTypes.DATE,
         field: "created_at",
@@ -33,6 +39,19 @@ module.exports = (sequelize, DataTypes) => {
       updatedAt: {
         type: DataTypes.DATE,
         field: "updated_at",
+      },
+    },
+    {
+      hooks: {
+        beforeCreate: async (user) => {
+          const salt = await bcrypt.genSalt(10); //whatever number you want
+          user.password = await bcrypt.hash(user.password, salt);
+        },
+      },
+      instanceMethods: {
+        validPassword: async function (password) {
+          return await bcrypt.compare(password, this.password);
+        },
       },
     },
     { tableName: "authors" }

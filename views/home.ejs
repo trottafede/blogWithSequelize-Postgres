@@ -40,7 +40,7 @@
           <% blogs.forEach(function(singleBlog){ %>
           <div class="col-lg-4 col-xl-3 col-sm-12 singleBlog">
             <div class="imgContainer">
-              <a href="/articulo/<%- singleBlog.slug %>">
+              <a href="/article/<%- singleBlog.slug %>">
                 <img
                   src="<%- singleBlog.image %>"
                   alt="<%- singleBlog.author %>"
@@ -61,7 +61,7 @@
                 <%-singleBlog.createdAt.toLocaleTimeString() %>
               </em>
             </div>
-            <a href="/articulo/<%- singleBlog.slug %>">Read more</a>
+            <a href="/article/<%- singleBlog.slug %>">Read more</a>
           </div>
 
           <% }); %> <% } else { %>

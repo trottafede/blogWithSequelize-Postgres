@@ -101,6 +101,27 @@
             </div>
 
             <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                required
+                maxlength="255"
+                minlength="5"
+                class="form-control"
+                type="password"
+                name="password"
+                id="password"
+              />
+
+              <div class="valid-feedback">Password ok!</div>
+
+              <div class="invalid-feedback">
+                <p>Write your password</p>
+                <p>Max chars: 255</p>
+                <p>Min chars: 5</p>
+              </div>
+            </div>
+
+            <div class="mb-3">
               <button class="btn btn-primary" type="submit">
                 Create author
               </button>
