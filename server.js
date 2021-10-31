@@ -17,4 +17,4 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
 
 routes(app);
-app.listen(port, () => console.log(`listening on http://localhost:${port}`));
+app.listen(3000, () => console.log(`listening on http://localhost:${port}`));
