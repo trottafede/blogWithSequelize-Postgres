@@ -71,35 +71,15 @@
         <p id="userComment" class="text-center">
           No comment here, be the first one!
         </p>
-        <% } %>
-
+        <% } %> <% if (user) { %>
         <div id="comments" class="col-md-12">
           <div id="singleComment">
             <form
               class="needs-validation"
-              action="/comment/<%- singleBlog.slug %>"
+              action="/admin/comment/<%- singleBlog.slug %>"
               method="post"
               novalidate
             >
-              <div class="mb-3">
-                <label class="form-label" for="name">User</label>
-                <input
-                  required
-                  minlength="5"
-                  maxlength="255"
-                  class="form-control"
-                  type="text"
-                  name="name"
-                  id="name"
-                />
-                <div class="valid-feedback">Name ok!</div>
-
-                <div class="invalid-feedback">
-                  <span>Máximos carácteres 21844</span>
-                  <br />
-                  <span>Minimos carácteres 5</span>
-                </div>
-              </div>
               <div class="mb-3">
                 <label class="form-label" for="comentario">Comentario</label>
                 <textarea
@@ -128,6 +108,9 @@
             </form>
           </div>
         </div>
+        <% } else { %>
+        <p id="isAuthComment">Kindly log in before making comments.</p>
+        <% } %>
       </div>
     </div>
 

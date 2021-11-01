@@ -18,6 +18,7 @@
   }
   nav i {
     font-size: 1.5rem;
+    margin-right: 0.5rem;
     color: var(--lettersColor);
   }
 }
@@ -40,6 +41,7 @@
 
   nav i {
     font-size: 1.5rem;
+    margin-right: 0.5rem;
     color: var(--lettersColor);
   }
 }
@@ -63,6 +65,7 @@
 
   nav i {
     font-size: 1.5rem;
+    margin-right: 0.5rem;
     color: var(--lettersColor);
   }
 }
@@ -82,7 +85,7 @@
 
   nav i {
     font-size: 1.2rem;
-    padding-right: 0.8rem;
+    padding-right: 0.3rem;
     color: var(--lettersColor);
   }
 
@@ -106,7 +109,7 @@
 
   nav i {
     font-size: 1.2rem;
-    padding-right: 0.8rem;
+    padding-right: 0.3rem;
     color: var(--lettersColor);
   }
 

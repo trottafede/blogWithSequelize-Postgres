@@ -12,7 +12,7 @@ module.exports = {
       ],
     });
 
-    res.render("home", { blogs: articles });
+    res.render("home", { blogs: articles, user: req.user });
   },
   show: async (req, res) => {
     const slug = req.params.slug;
@@ -31,22 +31,8 @@ module.exports = {
 
     res.render("article", {
       singleBlog: article,
+      user: req.user,
     }); //View
-  },
-
-  storeComment: async (req, res) => {
-    const slug = req.params.slug;
-    const article = await Article.findOne({
-      where: { slug },
-    });
-    let { name, content } = req.body;
-
-    await Comment.create({
-      name,
-      content,
-      articleId: article.id,
-    });
-    res.redirect(`/article/${slug}`);
   },
 
   NotFoundPage: (req, res) => {
@@ -61,43 +47,40 @@ module.exports = {
   },
 
   createSignUp: async (req, res) => {},
+
   createUser: (req, res) => {
-    res.render("createUser");
+    res.render("createUser", { user: req.user });
   },
+
   storeUser: async (req, res) => {
     let { name, lastname, email, password } = req.body;
-    User.create({
-      firstname: name,
-      lastname,
-      email,
-      password,
-    }).then((user) => {
-      res.redirect("/admin");
+    const [user, created] = await User.findOrCreate({
+      where: { email },
+      defaults: {
+        firstname: name,
+        lastname,
+        email,
+        password,
+      },
     });
 
-    // res.status(400).send("Hacker sorete no te metas");
+    if (created) {
+      req.login(user, () => res.redirect("/admin"));
+    } else {
+      res.redirect("/login");
+    }
   },
 
   storeSignUp: async (req, res) => {},
 
   createLogIn: async (req, res) => {
-    res.render("loginForm");
+    res.render("loginForm", { user: req.user });
   },
 
-  storeLogIn: async (req, res) => {
-    const { email, password } = req.body;
+  logOut: async (req, res) => {
+    // await req.session.destroy();
+    req.logout();
 
-    User.findOne({ where: { email } }).then(async function (user) {
-      if (!user) {
-        res.redirect("/signup");
-      } else if (!(await user.validPassword(password))) {
-        res.redirect("/login");
-      } else {
-        // req.session.user = user.dataValues;
-        res.redirect("/");
-      }
-    });
+    res.redirect("/"); // will always fire after session is destroyed
   },
-
-  logOut: async (req, res) => {},
 };

@@ -85,28 +85,6 @@
               </div>
             </div>
 
-            <div class="mb-3">
-              <label for="user" class="form-label">User</label>
-              <select class="form-select" name="user_id" id="user">
-                <ul>
-                  <% if (users) { %>
-                  <!--  -->
-                  <% users.forEach(function(user){ %>
-                  <option value="<%- user.id %>">
-                    <%- user.firstname %> <%- user.lastname %>
-                  </option>
-                  <% }); %>
-                  <!--  -->
-                  <% } %>
-                </ul>
-              </select>
-
-              <div class="valid-feedback">User ok!</div>
-              <div class="invalid-feedback">
-                <p>Kindly select an user</p>
-              </div>
-            </div>
-
             <div id="tableroDeFormato">
               <span id="parrafo"><i class="fas fa-code"></i> Párrafo</span>
               <span id="header"><i class="fas fa-heading"></i> Sub Titulo</span>
