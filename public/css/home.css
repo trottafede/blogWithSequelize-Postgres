@@ -29,7 +29,7 @@
     margin-bottom: 20px;
   }
 
-  .singleBlog #content {
+  .singleBlog .content {
     margin-bottom: 30px;
     font-size: 1rem;
   }
@@ -68,7 +68,7 @@
     margin-bottom: 20px;
   }
 
-  .singleBlog #content {
+  .singleBlog .content {
     margin-bottom: 30px;
     font-size: 1rem;
   }
@@ -107,7 +107,7 @@
     font-size: 1.4rem;
   }
 
-  .singleBlog #content {
+  .singleBlog .content {
     margin-bottom: 30px;
     font-size: 1.1rem;
   }
@@ -153,7 +153,7 @@
     text-align: center;
     font-size: 1.2rem;
   }
-  .singleBlog #content {
+  .singleBlog .content {
     margin-bottom: 30px;
     font-size: 0.94rem;
   }
@@ -173,7 +173,7 @@
     margin-bottom: 30px;
     padding: 10px;
   }
-  .singleBlog #content {
+  .singleBlog .content {
     font-size: 0.95rem;
     margin-bottom: 10px;
   }
@@ -205,7 +205,7 @@
     font-size: 1.2rem;
   }
 
-  .singleBlog #userInfo {
+  .singleBlog .userInfo {
     font-size: 0.94rem;
     margin-bottom: 10px;
   }
