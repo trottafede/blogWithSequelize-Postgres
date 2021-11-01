@@ -4,7 +4,10 @@ const slugify = require("slugify");
 
 module.exports = {
   index: async (req, res) => {
-    const article = await Article.findAll({
+    const articles = await Article.findAll({
+      where: {
+        userId: req.user.dataValues.id,
+      },
       limit: 200,
       order: [["createdAt", "DESC"]],
       include: [
@@ -18,9 +21,7 @@ module.exports = {
     });
 
     res.render("admin", {
-      blogs: article,
-      comments: article,
-      users: article,
+      blogs: articles,
       user: req.user,
     });
   },
@@ -74,7 +75,7 @@ module.exports = {
     });
     let body = {
       article: slug,
-      name,
+      user: name,
       content,
     };
     await nodeMailer(body, "comment");

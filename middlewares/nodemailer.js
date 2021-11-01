@@ -41,7 +41,6 @@ module.exports = async function nodeMailer(body, type) {
     });
   } else if (type === "comment") {
     let { article, user, content } = body;
-
     let textToSend = `
         Se creó un comentario en el articulo ${article}.
         El autor del comentario es: ${user}
