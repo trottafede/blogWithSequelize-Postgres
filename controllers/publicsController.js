@@ -1,5 +1,5 @@
 const { Article, Comment, User } = require("../models");
-
+const seeder = require("../models/seeder");
 module.exports = {
   index: async (req, res) => {
     const articles = await Article.findAll({
@@ -14,6 +14,7 @@ module.exports = {
 
     res.render("home", { blogs: articles, user: req.user });
   },
+
   show: async (req, res) => {
     const slug = req.params.slug;
 
@@ -38,6 +39,7 @@ module.exports = {
   NotFoundPage: (req, res) => {
     res.send("Entraste a cualquier lado bro xD");
   },
+
   ApiArticles: async (req, res) => {
     const articles = await Article.findAll({
       limit: 200,
@@ -45,8 +47,6 @@ module.exports = {
     });
     res.json(articles);
   },
-
-  createSignUp: async (req, res) => {},
 
   createUser: (req, res) => {
     res.render("createUser", { user: req.user });
@@ -71,10 +71,35 @@ module.exports = {
     }
   },
 
-  storeSignUp: async (req, res) => {},
-
   createLogIn: async (req, res) => {
     res.render("loginForm", { user: req.user });
+  },
+
+  generateArticles: async (req, res) => {
+    await User.findOrCreate({
+      where: { email: "ftrotta18@gmail.com" },
+      defaults: {
+        firstname: "Federico",
+        lastname: "Trotta",
+        email: "ftrotta18@gmail.com",
+        password: "asdasd",
+      },
+    });
+
+    for (let indice = 0; indice < seeder.length; indice++) {
+      await Article.findOrCreate({
+        where: { slug: seeder[indice].slug },
+        defaults: {
+          title: seeder[indice].title,
+          content: seeder[indice].content,
+          image: seeder[indice].image,
+          userId: 1,
+          slug: seeder[indice].slug,
+          resume: seeder[indice].resume,
+        },
+      });
+    }
+    res.redirect("/");
   },
 
   logOut: async (req, res) => {

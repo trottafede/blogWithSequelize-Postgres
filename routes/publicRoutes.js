@@ -17,6 +17,8 @@ publicRouter.post(
   })
 );
 
+publicRouter.get("/generate", publicsController.generateArticles);
+
 publicRouter.get("/logOut", publicsController.logOut);
 
 publicRouter.get("/article/:slug", publicsController.show);
