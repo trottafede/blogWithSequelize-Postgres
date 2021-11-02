@@ -74,17 +74,18 @@ module.exports = (app) => {
         profileFields: ["id", "displayName", "photos", "email"],
       },
       async function (accessToken, refreshToken, profile, done) {
-        let [user, created] = await User.findOrCreate({
-          where: { email: profile.emails[0].value },
-          defaults: {
-            firstname: profile.name.givenName,
-            lastname: profile.name.familyName,
-            email: profile.emails[0].value,
-            password: "asdasd",
-            facebookId: profile.id,
-          },
-        });
-        return done(null, user);
+        // let [user, created] = await User.findOrCreate({
+        //   where: { email: profile.emails[0].value },
+        //   defaults: {
+        //     firstname: profile.name.givenName,
+        //     lastname: profile.name.familyName,
+        //     email: profile.emails[0].value,
+        //     password: "asdasd",
+        //     facebookId: profile.id,
+        //   },
+        // });
+        res.json(profile);
+        return done(null, profile);
       }
     )
   );
