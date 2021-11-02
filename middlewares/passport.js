@@ -71,6 +71,7 @@ module.exports = (app) => {
         clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
         callbackURL: `${process.env.URL_CALLBACK}auth/facebook/callback`,
+        profileFields: ["id", "displayName", "photos", "email"],
       },
       async function (accessToken, refreshToken, profile, done) {
         let [user, created] = await User.findOrCreate({
