@@ -46,7 +46,7 @@ module.exports = (app) => {
       {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/google/callback",
+        callbackURL: `${process.env.GOOGLE_CLIENT_SECRET}/google/callback`,
       },
       async function (accessToken, refreshToken, profile, done) {
         let [user, created] = await User.findOrCreate({
@@ -59,7 +59,6 @@ module.exports = (app) => {
             googleId: profile.id,
           },
         });
-
         return done(null, user);
       }
     )
