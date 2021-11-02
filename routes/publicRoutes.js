@@ -17,20 +17,6 @@ publicRouter.post(
   })
 );
 
-// FB?
-
-publicRouter.get("/auth/facebook", passport.authenticate("facebook"));
-
-publicRouter.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", { failureRedirect: "/login" }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/");
-  }
-);
-// --
-
 publicRouter.get("/generate", publicsController.generateArticles);
 
 publicRouter.get("/logOut", publicsController.logOut);

@@ -2,6 +2,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
+
 const { User } = require("../models");
 
 module.exports = (app) => {
@@ -46,7 +47,7 @@ module.exports = (app) => {
       {
         clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
-        callbackURL: "http://localhost:3000/auth/facebook/callback",
+        callbackURL: "http://localhost:3000/auth/facebook/secret",
       },
       function (accessToken, refreshToken, profile, cb) {
         User.findOrCreate({ facebookId: profile.id }, function (err, user) {

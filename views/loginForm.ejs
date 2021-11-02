@@ -27,13 +27,19 @@
     <%- include("partials/googleAnalytics") %>
   </head>
   <body>
-    <!-- FB?? -->
+    <div id="fb-root"></div>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0&appId=280487540655500&autoLogAppEvents=1"
+      nonce="DbyICYvp"
+    ></script>
     <%- include("partials/navbar") %>
-    <!--  -->
 
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-8">
           <form id="loginForm" action="/login" method="post">
             <div>
               <div class="">
@@ -62,12 +68,17 @@
             </div>
           </form>
         </div>
-        <div class="col-lg-12">
-          <fb:login-button
-            scope="public_profile,email"
-            onlogin="checkLoginState();"
-          >
-          </fb:login-button>
+
+        <div class="col-lg-4">
+          <div
+            class="fb-login-button"
+            data-width=""
+            data-size="large"
+            data-button-type="login_with"
+            data-layout="rounded"
+            data-auto-logout-link="true"
+            data-use-continue-as="false"
+          ></div>
         </div>
       </div>
     </div>
@@ -107,41 +118,28 @@
       })();
     </script>
 
-    <!-- Login de facobook -->
-
+    <!-- Facebook login -->
     <script>
       window.fbAsyncInit = function () {
         FB.init({
-          appId: "936029013678674",
+          appId: "280487540655500",
           cookie: true,
           xfbml: true,
           version: "v12.0",
         });
+        FB.login(function (response) {
+          if (response.authResponse) {
+            console.log("Welcome!  Fetching your information.... ");
+            FB.api("/me", function (response) {
+              console.log("Good to see you, " + response.name + ".");
+            });
+          } else {
+            console.log("User cancelled login or did not fully authorize.");
+          }
+        });
 
         FB.AppEvents.logPageView();
       };
-
-      (function (d, s, id) {
-        var js,
-          fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {
-          return;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
-
-      FB.getLoginStatus(function (response) {
-        statusChangeCallback(response);
-      });
-
-      function checkLoginState() {
-        FB.getLoginStatus(function (response) {
-          statusChangeCallback(response);
-        });
-      }
     </script>
   </body>
 </html>
