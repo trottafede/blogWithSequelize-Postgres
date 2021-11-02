@@ -77,7 +77,7 @@ module.exports = {
   },
 
   generateArticles: async (req, res) => {
-    let user = await User.findOrCreate({
+    let [user, created] = await User.findOrCreate({
       where: { email: "ftrotta18@gmail.com" },
       defaults: {
         firstname: "Federico",
