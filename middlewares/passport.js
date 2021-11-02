@@ -75,11 +75,11 @@ module.exports = (app) => {
       },
       async function (accessToken, refreshToken, profile, done) {
         let [user, created] = await User.findOrCreate({
-          where: { email: profile.emails[0].value },
+          where: { email: profile.emails },
           defaults: {
             firstname: profile.displayName,
             lastname: profile.displayName + "asd",
-            email: profile.emails[0].value,
+            email: profile.emails,
             password: "asdasd",
             facebookId: profile.id,
           },
