@@ -77,7 +77,7 @@ module.exports = {
   },
 
   generateArticles: async (req, res) => {
-    await User.findOrCreate({
+    let user = await User.findOrCreate({
       where: { email: "ftrotta18@gmail.com" },
       defaults: {
         firstname: "Federico",
@@ -94,7 +94,7 @@ module.exports = {
           title: seeder[indice].title,
           content: seeder[indice].content,
           image: seeder[indice].image,
-          userId: 1,
+          userId: user.id,
           slug: seeder[indice].slug,
           resume: seeder[indice].resume,
         },
