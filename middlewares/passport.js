@@ -60,6 +60,9 @@ module.exports = (app) => {
             googleId: profile.id,
           },
         });
+        if (!created) {
+          user.googleId = profile.id;
+        }
         return done(null, user);
       }
     )
@@ -76,7 +79,7 @@ module.exports = (app) => {
       async function (accessToken, refreshToken, profile, done) {
         console.log(profile);
         let [user, created] = await User.findOrCreate({
-          where: { facebookId: profile.id },
+          where: { email: profile.emails[0].value },
           defaults: {
             firstname: profile.name.givenName,
             lastname: profile.name.familyName,
@@ -85,6 +88,11 @@ module.exports = (app) => {
             facebookId: profile.id,
           },
         });
+
+        if (!created) {
+          user.facebookId = profile.id;
+        }
+
         return done(null, user);
       }
     )
