@@ -1,5 +1,6 @@
 const { Article, Comment, User } = require("../models");
 const seeder = require("../models/seeder");
+const passport = require("passport");
 module.exports = {
   index: async (req, res) => {
     const articles = await Article.findAll({

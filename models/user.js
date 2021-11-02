@@ -32,9 +32,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         field: "password",
       },
-      facebookId: {
+      googleId: {
         type: DataTypes.STRING,
-        field: "facebookId",
+        field: "googleId",
       },
       createdAt: {
         type: DataTypes.DATE,

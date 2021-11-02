@@ -17,14 +17,18 @@ publicRouter.post(
   })
 );
 
-publicRouter.get("/auth/facebook", passport.authenticate("facebook"));
+// Google auth
+publicRouter.get(
+  "/google",
+  passport.authenticate("google", { scope: ["profile", "email"] })
+);
 
 publicRouter.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", { failureRedirect: "/login" }),
+  "/google/callback",
+  passport.authenticate("google", { failureRedirect: "/login" }),
   function (req, res) {
     // Successful authentication, redirect home.
-    res.redirect("/");
+    res.redirect("/admin");
   }
 );
 
