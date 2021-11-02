@@ -17,7 +17,7 @@ publicRouter.post(
   })
 );
 
-// Google auth
+// --------------------------Google auth-------------------------------
 publicRouter.get(
   "/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
@@ -31,6 +31,20 @@ publicRouter.get(
     res.redirect("/admin");
   }
 );
+// ----------------------------------------------------------------
+
+// --------------------Facebook auth----------------------------
+publicRouter.get("/auth/facebook", passport.authenticate("facebook"));
+
+publicRouter.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", { failureRedirect: "/login" }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect("/admin");
+  }
+);
+// ----------------------------------------------------------------
 
 publicRouter.get("/generate", publicsController.generateArticles);
 

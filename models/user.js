@@ -36,6 +36,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         field: "googleId",
       },
+      facebookId: {
+        type: DataTypes.STRING,
+        field: "facebookId",
+      },
       createdAt: {
         type: DataTypes.DATE,
         field: "created_at",
