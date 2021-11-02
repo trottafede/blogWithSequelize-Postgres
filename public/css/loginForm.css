@@ -13,20 +13,20 @@
     width: 200px;
   }
 
-  #googleButtonContainer {
+  .authButtonsContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 60px;
   }
 
-  #googleButton {
+  .authButtons {
     text-align: center;
   }
-  #googleButton a {
+  .authButtons a {
     border-radius: 50px;
   }
-  #googleButton i {
+  .authButtons i {
     color: #fff;
     font-size: 1rem;
     margin-right: 10px;
@@ -47,20 +47,20 @@
     width: 400px;
   }
 
-  #googleButtonContainer {
+  .authButtonsContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 60px;
   }
 
-  #googleButton {
+  .authButtons {
     text-align: center;
   }
-  #googleButton a {
+  .authButtons a {
     border-radius: 50px;
   }
-  #googleButton i {
+  .authButtons i {
     color: #fff;
     font-size: 1rem;
     margin-right: 10px;
@@ -82,20 +82,20 @@
     width: 300px;
   }
 
-  #googleButtonContainer {
+  .authButtonsContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 60px;
   }
 
-  #googleButton {
+  .authButtons {
     text-align: center;
   }
-  #googleButton a {
+  .authButtons a {
     border-radius: 50px;
   }
-  #googleButton i {
+  .authButtons i {
     color: #fff;
     font-size: 1rem;
     margin-right: 10px;
@@ -117,18 +117,18 @@
     width: 300px;
   }
 
-  #googleButtonContainer {
+  .authButtonsContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
-  #googleButton {
+  .authButtons {
     text-align: center;
   }
-  #googleButton a {
+  .authButtons a {
     border-radius: 50px;
   }
-  #googleButton i {
+  .authButtons i {
     color: var(--second-bg-color);
     font-size: 1rem;
     margin-right: 10px;
@@ -150,19 +150,19 @@
     width: 300px;
   }
 
-  #googleButtonContainer {
+  .authButtonsContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  #googleButton {
+  .authButtons {
     text-align: center;
   }
-  #googleButton a {
+  .authButtons a {
     border-radius: 50px;
   }
-  #googleButton i {
+  .authButtons i {
     color: var(--second-bg-color);
     font-size: 1rem;
     margin-right: 10px;
