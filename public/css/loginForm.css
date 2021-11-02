@@ -11,6 +11,7 @@
   }
   #loginForm button {
     width: 200px;
+    border-radius: 50px;
   }
 
   #googleButtonContainer {
@@ -46,6 +47,7 @@
   }
   #loginForm button {
     width: 400px;
+    border-radius: 50px;
   }
 
   #googleButtonContainer {
@@ -82,6 +84,7 @@
   }
   #loginForm button {
     width: 300px;
+    border-radius: 50px;
   }
 
   #googleButtonContainer {
@@ -118,6 +121,7 @@
   }
   #loginForm button {
     width: 300px;
+    border-radius: 50px;
   }
 
   #googleButtonContainer {
@@ -152,6 +156,7 @@
   }
   #loginForm button {
     width: 300px;
+    border-radius: 50px;
   }
 
   #googleButtonContainer {
