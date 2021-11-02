@@ -73,17 +73,17 @@ module.exports = (app) => {
         callbackURL: `${process.env.URL_CALLBACK}auth/facebook/callback`,
         profileFields: ["id", "displayName", "photos", "emails"],
       },
-      async function (accessToken, refreshToken, user, done) {
-        // let [user, created] = await User.findOrCreate({
-        //   where: { email: profile.emails },
-        //   defaults: {
-        //     firstname: profile.displayName,
-        //     lastname: profile.displayName + "asd",
-        //     email: profile.emails,
-        //     password: "asdasd",
-        //     facebookId: profile.id,
-        //   },
-        // });
+      async function (accessToken, refreshToken, profile, done) {
+        let [user, created] = await User.findOrCreate({
+          where: { facebook_id: profile.id },
+          defaults: {
+            firstname: "hola",
+            lastname: "hola",
+            email: "asd@gmail.com",
+            password: "asdasd",
+            facebookId: profile.id,
+          },
+        });
         return done(null, user);
       }
     )
