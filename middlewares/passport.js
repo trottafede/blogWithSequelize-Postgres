@@ -75,7 +75,7 @@ module.exports = (app) => {
       },
       async function (accessToken, refreshToken, profile, done) {
         let [user, created] = await User.findOrCreate({
-          where: { facebook_id: profile.id },
+          where: { facebookId: profile.id },
           defaults: {
             firstname: "hola",
             lastname: "hola",
