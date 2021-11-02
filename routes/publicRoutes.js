@@ -34,19 +34,20 @@ publicRouter.get(
 // ----------------------------------------------------------------
 
 // --------------------Facebook auth----------------------------
-publicRouter.get("/auth/facebook", passport.authenticate("facebook"));
+publicRouter.get(
+  "/auth/facebook",
+  passport.authenticate("facebook", {
+    scope: "email",
+  })
+);
 
 publicRouter.get(
   "/auth/facebook/callback",
-  passport.authenticate(
-    "facebook",
-    { scope: "email" },
-    { failureRedirect: "/login" }
-  ),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/admin");
-  }
+  passport.authenticate("facebook", {
+    failureRedirect: "/login",
+    successRedirect: "/admmin",
+    scope: ["email"],
+  })
 );
 // ----------------------------------------------------------------
 
