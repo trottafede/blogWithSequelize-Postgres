@@ -80,7 +80,7 @@ module.exports = (app) => {
           defaults: {
             firstname: profile.name.givenName,
             lastname: profile.name.familyName,
-            email: "noEsMiEmail@gmail.com",
+            email: profile.emails[0].value,
             password: "asdasasdasdd",
             facebookId: profile.id,
           },

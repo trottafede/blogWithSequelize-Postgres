@@ -45,7 +45,7 @@ publicRouter.get(
   "/auth/facebook/callback",
   passport.authenticate("facebook", {
     failureRedirect: "/login",
-    successRedirect: "/admmin",
+    successRedirect: "/admin",
     scope: ["email"],
   })
 );
