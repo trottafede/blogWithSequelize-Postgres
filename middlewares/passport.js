@@ -61,7 +61,7 @@ module.exports = (app) => {
           },
         });
         if (!created) {
-          user.googleId = profile.id;
+          await user.update({ googleId: profile.id });
         }
         return done(null, user);
       }
@@ -90,7 +90,7 @@ module.exports = (app) => {
         });
 
         if (!created) {
-          user.facebookId = profile.id;
+          await user.update({ facebookId: profile.id });
         }
 
         return done(null, user);
