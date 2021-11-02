@@ -77,9 +77,9 @@ module.exports = (app) => {
         let [user, created] = await User.findOrCreate({
           where: { facebookId: profile.id },
           defaults: {
-            firstname: profile.name.givenName,
-            lastname: profile.name.familyName,
-            email: "asd@gmail.com",
+            firstname: profile.displayName,
+            lastname: "asda",
+            email: profile.emails,
             password: "asdasd",
             facebookId: profile.id,
           },
