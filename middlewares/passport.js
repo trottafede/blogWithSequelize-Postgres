@@ -79,7 +79,7 @@ module.exports = (app) => {
           defaults: {
             firstname: profile.name.givenName,
             lastname: profile.name.familyName,
-            email: profile.emails,
+            email: "asd@gmail.com",
             password: "asdasd",
             facebookId: profile.id,
           },
