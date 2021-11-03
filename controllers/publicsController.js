@@ -1,6 +1,5 @@
 const { Article, Comment, User } = require("../models");
 const seeder = require("../models/seeder");
-const passport = require("passport");
 module.exports = {
   index: async (req, res) => {
     const articles = await Article.findAll({
@@ -49,33 +48,6 @@ module.exports = {
     res.json(articles);
   },
 
-  createUser: (req, res) => {
-    res.render("createUser", { user: req.user });
-  },
-
-  storeUser: async (req, res) => {
-    let { name, lastname, email, password } = req.body;
-    const [user, created] = await User.findOrCreate({
-      where: { email },
-      defaults: {
-        firstname: name,
-        lastname,
-        email,
-        password,
-      },
-    });
-
-    if (created) {
-      req.login(user, () => res.redirect("/admin"));
-    } else {
-      res.redirect("/login");
-    }
-  },
-
-  createLogIn: async (req, res) => {
-    res.render("loginForm", { user: req.user });
-  },
-
   generateArticles: async (req, res) => {
     let [user, created] = await User.findOrCreate({
       where: { email: "ftrotta18@gmail.com" },
@@ -101,12 +73,5 @@ module.exports = {
       });
     }
     res.redirect("/");
-  },
-
-  logOut: async (req, res) => {
-    // await req.session.destroy();
-    req.logout();
-
-    res.redirect("/"); // will always fire after session is destroyed
   },
 };
