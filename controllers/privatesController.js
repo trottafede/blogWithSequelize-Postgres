@@ -1,9 +1,52 @@
-const { Article, Comment, User } = require("../models");
+const { Article, Comment, User, Role } = require("../models");
 const nodeMailer = require("../middlewares/nodemailer");
 const slugify = require("slugify");
 
 module.exports = {
-  index: async (req, res) => {
+  showAdmin: async (req, res) => {
+    const articles = await Article.findAll({
+      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+
+    const users = await User.findAll({
+      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          model: Role,
+        },
+      ],
+    });
+
+    res.render("admin", {
+      blogs: articles,
+      user: req.user,
+      users,
+    });
+  },
+  showEditor: async (req, res) => {
+    const articles = await Article.findAll({
+      limit: 200,
+      order: [["createdAt", "DESC"]],
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Comment,
+        },
+      ],
+    });
+    res.render("admin", {
+      blogs: articles,
+      user: req.user,
+    });
+  },
+  showWriter: async (req, res) => {
     const articles = await Article.findAll({
       where: {
         userId: req.user.dataValues.id,
@@ -19,13 +62,17 @@ module.exports = {
         },
       ],
     });
-
     res.render("admin", {
       blogs: articles,
       user: req.user,
     });
   },
-  // show: (req, res) => {},
+  showLector: async (req, res) => {},
+
+  showProfile: async (req, res) => {
+    const user = req.user;
+    res.render("myProfile", { user });
+  },
 
   createArticle: async (req, res) => {
     let users = await User.findAll();
@@ -142,6 +189,16 @@ module.exports = {
     await Article.destroy({
       where: {
         slug,
+      },
+    });
+    res.redirect("/admin"); // View
+  },
+  destroyUser: async (req, res) => {
+    const id = req.params.id;
+
+    await User.destroy({
+      where: {
+        id,
       },
     });
     res.redirect("/admin"); // View

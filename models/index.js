@@ -1,9 +1,11 @@
 "use strict";
 
 const Sequelize = require("sequelize");
-const CommentModel = require("./comment.js");
-const ArticleModel = require("./article.js");
-const UserModel = require("./user.js");
+const CommentModel = require("./Comment.js");
+const ArticleModel = require("./Article.js");
+const UserModel = require("./User.js");
+const RoleModel = require("./Role.js");
+const PrivilegeModel = require("./Privilege.js");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
@@ -21,6 +23,8 @@ const sequelize = new Sequelize(
 const Comment = CommentModel(sequelize, Sequelize);
 const Article = ArticleModel(sequelize, Sequelize);
 const User = UserModel(sequelize, Sequelize);
+const Role = RoleModel(sequelize, Sequelize);
+const Privilege = PrivilegeModel(sequelize, Sequelize);
 
 Article.belongsTo(User, { onDelete: "cascade" });
 User.hasMany(Article);
@@ -28,10 +32,18 @@ User.hasMany(Article);
 Comment.belongsTo(Article, { onDelete: "cascade" });
 Article.hasMany(Comment);
 
+User.belongsTo(Role, { onDelete: "cascade" });
+Role.hasMany(User);
+
+Privilege.belongsTo(Role, { onDelete: "cascade" });
+Role.hasMany(Privilege);
+
 module.exports = {
   sequelize,
   Sequelize,
-  Comment,
-  Article,
   User,
+  Article,
+  Comment,
+  Role,
+  Privilege,
 };

@@ -40,6 +40,11 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         field: "facebookId",
       },
+      roleId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        defaultValue: 4,
+      },
       createdAt: {
         type: DataTypes.DATE,
         field: "created_at",

@@ -2,17 +2,48 @@ const express = require("express");
 const adminRouter = express.Router();
 
 const privatesController = require("../controllers/privatesController");
+const {
+  canCreate,
+  canComment,
+  canUpdate,
+  canDelete,
+  canSeeAdmin,
+} = require("../middlewares/Privileges");
 
-adminRouter.get("/", privatesController.index);
+// ----------------------Admin
+//-------------------------Editor
+// -----------------------Writer
+// ---------------------Lector
 
-adminRouter.get("/updateArticle/:slug", privatesController.editArticle);
-adminRouter.post("/updateArticle/:slug", privatesController.updateArticle);
+adminRouter.get("/myProfile", privatesController.showProfile);
 
-adminRouter.get("/createArticle", privatesController.createArticle);
-adminRouter.post("/createArticle", privatesController.storeArticle);
+adminRouter.get("/", canSeeAdmin, privatesController.showAdmin);
+adminRouter.get("/editor", canCreate, privatesController.showEditor);
+adminRouter.get("/writer", canCreate, privatesController.showWriter);
+adminRouter.get("/lector", canComment, privatesController.showLector);
 
-adminRouter.post("/comment/:slug", privatesController.storeComment);
+adminRouter.get(
+  "/updateArticle/:slug",
+  canUpdate,
+  privatesController.editArticle
+);
+adminRouter.post(
+  "/updateArticle/:slug",
+  canUpdate,
+  privatesController.updateArticle
+);
 
-adminRouter.get("/deleteArticle/:slug", privatesController.destroyArticle);
+adminRouter.get("/createArticle", canCreate, privatesController.createArticle);
+adminRouter.post("/createArticle", canCreate, privatesController.storeArticle);
+
+adminRouter.post("/comment/:slug", canComment, privatesController.storeComment);
+
+adminRouter.get("/delete/:id", canDelete, privatesController.destroyUser);
+
+adminRouter.get(
+  "/deleteArticle/:slug",
+  canDelete,
+  privatesController.destroyArticle
+);
 
 module.exports = adminRouter;

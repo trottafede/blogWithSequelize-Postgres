@@ -1,4 +1,4 @@
-"use strict";
+("use strict");
 
 module.exports = (sequelize, DataTypes) => {
   const Article = sequelize.define(
@@ -7,8 +7,9 @@ module.exports = (sequelize, DataTypes) => {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true,
+        unique: true,
         field: "id",
+        autoIncrement: true,
       },
       title: {
         type: DataTypes.STRING,
@@ -17,9 +18,12 @@ module.exports = (sequelize, DataTypes) => {
         field: "title",
       },
       image: {
-        type: DataTypes.TEXT,
-        allowNull: false,
+        type: DataTypes.STRING,
         field: "image",
+      },
+      imageBlob: {
+        type: DataTypes.BLOB,
+        field: "image_blob",
       },
       content: {
         type: DataTypes.TEXT,

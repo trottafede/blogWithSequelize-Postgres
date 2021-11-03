@@ -1,24 +1,18 @@
 "use strict";
 
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define(
-    "comment",
+  const Role = sequelize.define(
+    "role",
     {
       id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        field: "id",
+        unique: true,
       },
-      name: {
+      roleName: {
         type: DataTypes.STRING,
-        allowNull: false,
-        field: "name",
-      },
-      content: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        field: "content",
+        unique: true,
       },
       createdAt: {
         type: DataTypes.DATE,
@@ -29,8 +23,8 @@ module.exports = (sequelize, DataTypes) => {
         field: "updated_at",
       },
     },
-    { tableName: "comments" }
+    { tableName: "roles" }
   );
 
-  return Comment;
+  return Role;
 };

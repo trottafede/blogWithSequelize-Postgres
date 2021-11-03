@@ -26,7 +26,7 @@ module.exports = {
     });
 
     if (created) {
-      req.login(user, () => res.redirect("/admin"));
+      req.login(user, () => res.redirect("/"));
     } else {
       res.redirect("/login");
     }
@@ -36,7 +36,7 @@ module.exports = {
     res.render("loginForm", { user: req.user });
   },
   storeLogin: passport.authenticate("local", {
-    successRedirect: "/admin",
+    successRedirect: "/",
     failureRedirect: "/login",
   }),
 
@@ -44,16 +44,16 @@ module.exports = {
     scope: ["profile", "email"],
   }),
   storeGoogleLogin: passport.authenticate("google", {
-    failureRedirect: "/login",
-    successRedirect: "/admin",
+    failureRedirect: "/",
+    successRedirect: "/",
   }),
 
   createFacebookLogin: passport.authenticate("facebook", {
     scope: "email",
   }),
   storeFacebookLogin: passport.authenticate("facebook", {
-    failureRedirect: "/login",
-    successRedirect: "/admin",
+    failureRedirect: "/",
+    successRedirect: "/",
     scope: ["email"],
   }),
 
