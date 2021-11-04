@@ -73,7 +73,11 @@ module.exports = {
       "Make Comments",
     ];
 
-    const LectorPrivileges = ["Make Comments", "Read Articles"];
+    const LectorPrivileges = [
+      "Make Comments",
+      "Read Articles",
+      "Delete Own User",
+    ];
     const WriterPrivileges = [
       "Make Comments",
       "Create Article",

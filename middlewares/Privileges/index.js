@@ -1,7 +1,15 @@
 const canComment = require("./canComment");
 const canCreate = require("./canCreate");
 const canUpdate = require("./canUpdate");
-const canDelete = require("./canDelete");
+const canDeleteArticles = require("./canDeleteArticles");
 const canSeeAdmin = require("./canSeeAdmin");
+const canDeleteUser = require("./canDeleteUser");
 
-module.exports = { canComment, canCreate, canUpdate, canDelete, canSeeAdmin };
+module.exports = {
+  canComment,
+  canCreate,
+  canUpdate,
+  canDeleteArticles,
+  canSeeAdmin,
+  canDeleteUser,
+};

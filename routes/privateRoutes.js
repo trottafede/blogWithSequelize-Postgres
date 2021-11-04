@@ -6,8 +6,9 @@ const {
   canCreate,
   canComment,
   canUpdate,
-  canDelete,
+  canDeleteArticles,
   canSeeAdmin,
+  canDeleteUser,
 } = require("../middlewares/Privileges");
 
 // ----------------------Admin
@@ -38,11 +39,11 @@ adminRouter.post("/createArticle", canCreate, privatesController.storeArticle);
 
 adminRouter.post("/comment/:slug", canComment, privatesController.storeComment);
 
-adminRouter.get("/delete/:id", canDelete, privatesController.destroyUser);
+adminRouter.get("/delete/:id", canDeleteUser, privatesController.destroyUser);
 
 adminRouter.get(
   "/deleteArticle/:slug",
-  canDelete,
+  canDeleteArticles,
   privatesController.destroyArticle
 );
 

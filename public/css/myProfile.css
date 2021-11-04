@@ -1,3 +1,4 @@
+@import "globalColors.css";
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
   #profileImgContainer {
@@ -180,6 +181,10 @@
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  #profileOptions {
+    padding: 50px;
+    background-color: rgb(250, 215, 239);
+  }
   #profileImgContainer {
     display: flex;
     justify-content: center;
