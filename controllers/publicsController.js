@@ -151,12 +151,12 @@ module.exports = {
     }
 
     const [user, created] = await User.findOrCreate({
-      where: { email: "ftrotta18@gmail.com" },
+      where: { email: "admin@gmail.com" },
       defaults: {
         firstname: "Federico",
         lastname: "Trotta",
-        email: "ftrotta18@gmail.com",
-        password: "asdasd",
+        email: "admin@gmail.com",
+        password: "admin",
         roleId: 1,
       },
     });
