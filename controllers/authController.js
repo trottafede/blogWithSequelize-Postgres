@@ -2,14 +2,6 @@ const passport = require("passport");
 const { User } = require("../models");
 
 module.exports = {
-  index: (req, res) => {},
-  show: (req, res) => {},
-  create: (req, res) => {},
-  store: (req, res) => {},
-  edit: (req, res) => {},
-  update: (req, res) => {},
-  destroy: (req, res) => {},
-
   createUser: (req, res) => {
     res.render("createUser", { user: req.user });
   },
@@ -31,7 +23,6 @@ module.exports = {
       res.redirect("/login");
     }
   },
-
   createLogIn: async (req, res) => {
     res.render("loginForm", { user: req.user });
   },
@@ -39,7 +30,6 @@ module.exports = {
     successRedirect: "/",
     failureRedirect: "/login",
   }),
-
   createGoogleLogin: passport.authenticate("google", {
     scope: ["profile", "email"],
   }),
@@ -47,7 +37,6 @@ module.exports = {
     failureRedirect: "/",
     successRedirect: "/",
   }),
-
   createFacebookLogin: passport.authenticate("facebook", {
     scope: "email",
   }),
@@ -56,11 +45,8 @@ module.exports = {
     successRedirect: "/",
     scope: ["email"],
   }),
-
   logOut: async (req, res) => {
-    // await req.session.destroy();
     req.logout();
-
     res.redirect("/login"); // will always fire after session is destroyed
   },
 };

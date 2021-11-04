@@ -77,7 +77,6 @@ module.exports = (app) => {
         profileFields: ["id", "displayName", "name", "photos", "email"],
       },
       async function (accessToken, refreshToken, profile, done) {
-        console.log(profile);
         let [user, created] = await User.findOrCreate({
           where: { email: profile.emails[0].value },
           defaults: {

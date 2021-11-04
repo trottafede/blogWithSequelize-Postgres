@@ -11,17 +11,11 @@ const {
   canDeleteUser,
 } = require("../middlewares/Privileges");
 
-// ----------------------Admin
-//-------------------------Editor
-// -----------------------Writer
-// ---------------------Lector
-
 adminRouter.get("/myProfile", privatesController.showProfile);
 
 adminRouter.get("/", canSeeAdmin, privatesController.showAdmin);
 adminRouter.get("/editor", canCreate, privatesController.showEditor);
 adminRouter.get("/writer", canCreate, privatesController.showWriter);
-adminRouter.get("/lector", canComment, privatesController.showLector);
 
 adminRouter.get(
   "/updateArticle/:slug",

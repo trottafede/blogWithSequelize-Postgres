@@ -198,38 +198,22 @@
 /* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   #profileOptions {
-    padding: 50px;
     background-color: rgb(250, 215, 239);
+  }
+  #userInfo h4 {
+    text-align: center;
   }
   #profileImgContainer {
     display: flex;
     justify-content: center;
   }
   #profileImgContainer img {
-    margin: 60px 0;
+    margin: 20px 0 20px 0;
     width: 100px;
     height: 100px;
   }
-  h4,
-  h5 {
-    text-align: center;
-  }
-
-  #privileges {
-    margin-top: 30px;
-  }
-
-  #LevelImgContainer {
-    display: flex;
-    justify-content: center;
-  }
-
-  #LevelImgContainer img {
-    margin: 40px 0;
-    width: 400px;
-    height: 400px;
-  }
-  p {
-    text-align: center;
+  #userInfo em {
+    display: block;
+    font-size: 0.94rem;
   }
 }

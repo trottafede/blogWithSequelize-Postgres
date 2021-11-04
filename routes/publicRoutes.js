@@ -8,8 +8,8 @@ publicRouter.get("/generate", publicsController.generateArticles);
 publicRouter.get("/about", publicsController.aboutPage);
 
 publicRouter.get("/article/:slug", publicsController.show);
-publicRouter.get("/api/articles", publicsController.ApiArticles);
+publicRouter.get("/json/articles", publicsController.ApiArticles);
 
-publicRouter.get("*", publicsController.NotFoundPage);
+// publicRouter.get("*", publicsController.NotFoundPage);
 
 module.exports = publicRouter;

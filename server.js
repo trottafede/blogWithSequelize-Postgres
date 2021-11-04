@@ -5,6 +5,7 @@ const path = require("path");
 const routes = require("./routes");
 const port = process.env.PORT || 8000;
 const passport = require("./middlewares/passport");
+var cors = require("cors");
 
 // const db = require("./models");
 // db.sequelize
@@ -17,6 +18,9 @@ app.set("view engine", "ejs");
 //Middlewares
 app.use(express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+
 passport(app);
 
 // Routes

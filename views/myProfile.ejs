@@ -29,23 +29,27 @@
   <body>
     <%- include("partials/navbar") %>
 
-    <div id="profileOptions" class="col-xl-12">
-      <a class="btn btn-danger" href="/admin/delete/<%- user.id %>"
-        >Delete my acount</a
-      >
-    </div>
-
     <div class="container">
       <div class="row">
         <div
-          class="
-            col-xl-4 col-lg-4
-            left-side
-            d-flex
-            flex-column
-            justify-content-center
-          "
+          class="col-xl-2 d-flex flex-column justify-content-center"
+          id="profileOptions"
         >
+          <div class="text-center">
+            <a href="#">See my api Key</a><br />
+            <a href="#">See my level</a><br />
+            <a href="/admin/delete/<%- user.id %>">Delete my acount</a>
+          </div>
+        </div>
+
+        <div
+          class="col-xl-6 d-flex flex-column justify-content-center text-center"
+        >
+          <p>You have created: 123123 articles</p>
+          <p>You have commented: 123123 articles</p>
+          <p>You have seen: 1233 articles</p>
+        </div>
+        <div id="userInfo" class="col-xl-4">
           <div id="profileImgContainer">
             <img
               src="https://www.computerhope.com/jargon/g/guest-user.jpg"
@@ -53,53 +57,47 @@
             />
           </div>
 
-          <h4><%- user.firstname %> <%- user.lastname %></h4>
-          <h5>
+          <div class="text-center">
+            <h4><%- user.firstname %> <%- user.lastname %></h4>
             <!--  -->
-            <% if (user.roleId === 1) { %> Administrador <% } %>
+            <% if (user.roleId === 1) { %>
             <!--  -->
-            <% if (user.roleId === 2) { %> Editor <% } %>
+            <p>Admin</p>
+            <em><strong>You are allowed to:</strong></em>
+            <em>Create Articles</em>
+            <em>Delete Articles</em>
+            <em>Comment Articles</em>
+            <em>Update Articles</em>
+            <em>Delete Users</em>
             <!--  -->
-            <% if (user.roleId === 3) { %> Escritor <% } %>
+            <% } %>
             <!--  -->
-            <% if (user.roleId === 4) { %> Lector <% } %>
+            <% if (user.roleId === 2) { %>
             <!--  -->
-          </h5>
-
-          <div id="privileges">
-            <p>You are allowed to:</p>
-            <ol>
-              <li>Create Articles</li>
-              <li>Delete Articles</li>
-              <li>Comment Articles</li>
-              <li>Update Articles</li>
-              <li>Delete Users</li>
-            </ol>
+            <p>Editor</p>
+            <em><strong>You are allowed to:</strong></em>
+            <em>Create Articles</em>
+            <em>Delete Your own Articles</em>
+            <em>Comment Articles</em>
+            <em>Update Articles</em>
+            <% } %>
+            <!--  -->
+            <% if (user.roleId === 3) { %>
+            <p>Writer</p>
+            <em><strong>You are allowed to:</strong></em>
+            <em>Create Articles</em>
+            <em>Delete Your own Articles</em>
+            <em>Comment Articles</em>
+            <em>Update Your own Articles</em>
+            <% } %>
+            <!--  -->
+            <% if (user.roleId === 4) { %>
+            <p>Lector</p>
+            <em><strong>You are allowed to: </strong></em>
+            <em>Comment Articles</em>
+            <% } %>
           </div>
-        </div>
-
-        <div
-          class="
-            col-xl-8 col-lg-8
-            right-side
-            d-flex
-            flex-column
-            justify-content-center
-          "
-        >
-          <div id="LevelImgContainer">
-            <img
-              src="https://ws.shoutcast.com/images/contacts/e/e27e/e27e02dd-a3b9-4485-a488-b3f832d9fdb4/radios/789234af-3947-4601-8499-cb54917a0c34/789234af-3947-4601-8499-cb54917a0c34.png"
-              alt="fenix img"
-            />
-          </div>
-          <p>You have reached the maxium level available</p>
-          <p>
-            You have <strong><em>1230 </em></strong> karma points.
-          </p>
-          <p>Earn karma points creating articles and commentings posts</p>
-          <p>You have created: 1231 posts</p>
-          <p>You have made 123123 comments</p>
+          <!--  -->
         </div>
       </div>
     </div>

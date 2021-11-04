@@ -1,9 +1,12 @@
 const { Article, Comment, User, Role } = require("../models");
 const nodeMailer = require("../middlewares/nodemailer");
 const slugify = require("slugify");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   showAdmin: async (req, res) => {
+    const token = jwt.sign({ sub: req.user.id }, process.env.JWT_SECRET_TEXT);
+
     const articles = await Article.findAll({
       order: [["createdAt", "DESC"]],
       include: [
@@ -26,6 +29,7 @@ module.exports = {
       blogs: articles,
       user: req.user,
       users,
+      token,
     });
   },
   showEditor: async (req, res) => {
@@ -67,18 +71,14 @@ module.exports = {
       user: req.user,
     });
   },
-  showLector: async (req, res) => {},
-
   showProfile: async (req, res) => {
     const user = req.user;
     res.render("myProfile", { user });
   },
-
   createArticle: async (req, res) => {
     let users = await User.findAll();
     res.render("createArticle", { users, user: req.user });
   },
-
   storeArticle: async (req, res) => {
     let { title, image, content, resume } = req.body;
 
@@ -104,7 +104,6 @@ module.exports = {
 
     res.redirect("/admin");
   },
-
   storeComment: async (req, res) => {
     const slug = req.params.slug;
     const article = await Article.findOne({
@@ -129,7 +128,6 @@ module.exports = {
 
     res.redirect(`/article/${slug}`);
   },
-
   editArticle: async (req, res) => {
     const slug = req.params.slug;
 
@@ -150,7 +148,6 @@ module.exports = {
       user: req.user,
     });
   },
-
   updateArticle: async (req, res) => {
     const { title, content, image, resume } = req.body;
     const slug = req.params.slug;
@@ -182,7 +179,6 @@ module.exports = {
 
     res.redirect("/admin");
   },
-
   destroyArticle: async (req, res) => {
     const slug = req.params.slug;
 
