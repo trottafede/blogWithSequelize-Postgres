@@ -53,6 +53,7 @@
     width: 340;
     height: auto;
     max-height: 500px;
+
     border-bottom-left-radius: 100px;
   }
 
@@ -134,9 +135,9 @@
   }
 
   .singleBlog img {
-    width: auto;
-    max-width: 350px;
-    height: 200px;
+    width: 220px;
+    height: auto;
+    max-height: 300px;
     transition: transform 0.3s, -webkit-transform 0.3s;
   }
 
@@ -185,9 +186,9 @@
   }
 
   .singleBlog img {
-    height: 250px;
-    width: auto;
-    max-width: 250px;
+    width: 240px;
+    height: auto;
+    max-height: 300px;
     transition: transform 0.3s, -webkit-transform 0.3s;
   }
 
