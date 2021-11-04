@@ -177,4 +177,8 @@ module.exports = {
 
     res.redirect("/");
   },
+
+  aboutPage: async (req, res) => {
+    res.render("aboutPage", { user: req.user });
+  },
 };

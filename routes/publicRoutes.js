@@ -5,6 +5,7 @@ const publicsController = require("../controllers/publicsController");
 publicRouter.get("/", publicsController.index);
 
 publicRouter.get("/generate", publicsController.generateArticles);
+publicRouter.get("/about", publicsController.aboutPage);
 
 publicRouter.get("/article/:slug", publicsController.show);
 publicRouter.get("/api/articles", publicsController.ApiArticles);
