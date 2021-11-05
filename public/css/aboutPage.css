@@ -27,6 +27,22 @@
     width: 200px;
     margin-bottom: 10px;
   }
+
+  #apiKey {
+    padding: 20px;
+    border-radius: 50px;
+    background-color: red;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+  }
+
+  #apiKey p {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -56,6 +72,22 @@
   .rightSide a {
     width: 200px;
     margin-bottom: 10px;
+  }
+
+  #apiKey {
+    padding: 20px;
+    border-radius: 50px;
+    background-color: red;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+  }
+
+  #apiKey p {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 
@@ -88,6 +120,22 @@
     width: 200px;
     margin-bottom: 10px;
   }
+
+  #apiKey {
+    padding: 20px;
+    border-radius: 50px;
+    background-color: red;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+  }
+
+  #apiKey p {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -118,6 +166,22 @@
   .rightSide a {
     width: 200px;
     margin-bottom: 10px;
+  }
+
+  #apiKey {
+    padding: 20px;
+    border-radius: 50px;
+    background-color: red;
+    margin-bottom: 30px;
+    word-wrap: break-word;
+  }
+
+  #apiKey p {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
   }
 }
 
