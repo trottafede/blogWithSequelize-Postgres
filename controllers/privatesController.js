@@ -1,12 +1,9 @@
 const { Article, Comment, User, Role } = require("../models");
 const nodeMailer = require("../middlewares/nodemailer");
 const slugify = require("slugify");
-const jwt = require("jsonwebtoken");
 
 module.exports = {
   showAdmin: async (req, res) => {
-    const token = jwt.sign({ sub: req.user.id }, process.env.JWT_SECRET_TEXT);
-
     const articles = await Article.findAll({
       order: [["createdAt", "DESC"]],
       include: [
@@ -29,7 +26,6 @@ module.exports = {
       blogs: articles,
       user: req.user,
       users,
-      token,
     });
   },
   showEditor: async (req, res) => {

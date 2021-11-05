@@ -1,5 +1,7 @@
 const { Article, Comment, User, Role, Privilege } = require("../models");
 const seeder = require("../models/seeder");
+const jwt = require("jsonwebtoken");
+
 module.exports = {
   index: async (req, res) => {
     const articles = await Article.findAll({
@@ -183,6 +185,11 @@ module.exports = {
   },
 
   aboutPage: async (req, res) => {
-    res.render("aboutPage", { user: req.user });
+    let user = req.user;
+    let token = "You can not see the token because not logged in.";
+    if (user) {
+      token = jwt.sign({ sub: req.user.id }, process.env.JWT_SECRET_TEXT);
+    }
+    res.render("aboutPage", { user, token });
   },
 };

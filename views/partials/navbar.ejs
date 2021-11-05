@@ -75,6 +75,9 @@
     <div class="row">
       <div class="col-md-12">
         <h1><em>Lomo Blog </em><i class="fas fa-dog"></i></h1>
+        <% if (user) { %>
+        <em>Logueado como: <%- user.firstname %></em>
+        <% }%>
       </div>
     </div>
   </div>
