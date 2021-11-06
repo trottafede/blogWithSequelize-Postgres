@@ -3,9 +3,11 @@ const adminRouter = express.Router();
 
 const privatesController = require("../controllers/privatesController");
 const {
-  canCreate,
+  canCreateArticles,
   canComment,
-  canUpdate,
+  canUpdateOwnArticles,
+  canUpdateArticles,
+
   canDeleteArticles,
   canSeeAdmin,
   canDeleteUser,
@@ -14,22 +16,30 @@ const {
 adminRouter.get("/myProfile", privatesController.showProfile);
 
 adminRouter.get("/", canSeeAdmin, privatesController.showAdmin);
-adminRouter.get("/editor", canCreate, privatesController.showEditor);
-adminRouter.get("/writer", canCreate, privatesController.showWriter);
+adminRouter.get("/editor", canCreateArticles, privatesController.showEditor);
+adminRouter.get("/writer", canCreateArticles, privatesController.showWriter);
 
 adminRouter.get(
   "/updateArticle/:slug",
-  canUpdate,
+  [canUpdateOwnArticles, canUpdateArticles],
   privatesController.editArticle
 );
 adminRouter.post(
   "/updateArticle/:slug",
-  canUpdate,
+  [canUpdateOwnArticles, canUpdateArticles],
   privatesController.updateArticle
 );
 
-adminRouter.get("/createArticle", canCreate, privatesController.createArticle);
-adminRouter.post("/createArticle", canCreate, privatesController.storeArticle);
+adminRouter.get(
+  "/createArticle",
+  canCreateArticles,
+  privatesController.createArticle
+);
+adminRouter.post(
+  "/createArticle",
+  canCreateArticles,
+  privatesController.storeArticle
+);
 
 adminRouter.post("/comment/:slug", canComment, privatesController.storeComment);
 

@@ -11,6 +11,11 @@ async function canDeleteUser(req, res, next) {
       return next();
     }
   }
-  res.status(401).json({ message: "You do not have privileges", status: 401 });
+  res
+    .status(401)
+    .json({
+      message: "You do not have privileges to delete your account.",
+      status: 401,
+    });
 }
 module.exports = canDeleteUser;

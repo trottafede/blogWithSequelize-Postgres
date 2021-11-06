@@ -81,6 +81,32 @@
             <div id="apiKey">
               <p><%- token%></p>
             </div>
+
+            <p>Api endpoints</p>
+            <ul>
+              <li>CRUD of articles</li>
+              <ol>
+                <li>GET: /api/articles</li>
+                <li>GET: /api/articles/:slug</li>
+                <li>POST: /api/articles/:slug</li>
+                <li>PATCH: /api/articles/:slug</li>
+                <li>DELETE /api/articles/:slug</li>
+              </ol>
+              <li>CRUD of users</li>
+              <ol>
+                <li>GET: /api/users</li>
+                <li>POST: /api/users</li>
+                <li>PATCH: /api/users/:id</li>
+                <li>DELETE: /api/users/:id</li>
+              </ol>
+              <li>CRUD of comments</li>
+              <ol>
+                <li>GET: /api/comments</li>
+                <li>POST: /api/comments/:slug</li>
+                <li>PATCH: /api/comments/:commentId</li>
+                <li>DELETE: /api/comments/:id</li>
+              </ol>
+            </ul>
           </div>
         </div>
         <div class="col-xl-4 col-sm-12 rightSide">

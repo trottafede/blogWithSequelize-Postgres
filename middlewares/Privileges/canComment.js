@@ -7,10 +7,15 @@ async function canComment(req, res, next) {
     },
   });
   for (let indice = 0; indice < privileges.length; indice++) {
-    if (privileges[indice].dataValues.name == "Make Comments") {
+    if (privileges[indice].dataValues.name == "Create Comments") {
       return next();
     }
   }
-  res.status(401).json({ message: "You do not have privileges", status: 401 });
+  res
+    .status(401)
+    .json({
+      message: "You do not have privileges to create comments",
+      status: 401,
+    });
 }
 module.exports = canComment;

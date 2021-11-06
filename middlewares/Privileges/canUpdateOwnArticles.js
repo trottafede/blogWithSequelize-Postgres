@@ -1,6 +1,6 @@
 const { Privilege } = require("../../models");
 
-async function canUpdate(req, res, next) {
+async function canUpdateOwnArticles(req, res, next) {
   let privileges = await Privilege.findAll({
     where: {
       roleId: req.user.roleId,
@@ -11,6 +11,10 @@ async function canUpdate(req, res, next) {
       return next();
     }
   }
-  res.status(401).json({ message: "You do not have privileges", status: 401 });
+  res.status(401).json({
+    message:
+      "You do not have privileges to update Own Articles. Only Editors and Admin can",
+    status: 401,
+  });
 }
-module.exports = canUpdate;
+module.exports = canUpdateOwnArticles;

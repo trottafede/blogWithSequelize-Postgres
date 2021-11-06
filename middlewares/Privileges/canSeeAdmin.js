@@ -11,7 +11,13 @@ const canSeeAdmin = async (req, res, next) => {
   if (req.user.roleId == 1) {
     return next();
   }
-  res.status(401).json({ message: "You do not have privileges", status: 401 });
+  res
+    .status(401)
+    .json({
+      message:
+        "You do not have privileges to see admin. Only Lectors, Writers and Admins can",
+      status: 401,
+    });
 };
 
 module.exports = canSeeAdmin;

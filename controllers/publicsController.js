@@ -62,40 +62,49 @@ module.exports = {
     }
 
     const AdminPrivileges = [
-      "Create Article",
+      "Create Articles",
       "Read Articles",
       "Update Articles",
-      "Update Comments",
-      "Update Own Articles",
       "Delete Articles",
+
+      "Create Comments",
+      "Read Comments",
+      "Update Comments",
       "Delete Comments",
+
+      "Create Users",
+      "Read Users",
+      "Update Users",
       "Delete Users",
+
       "Delete Own User",
       "Delete Own Articles",
-      "Make Comments",
+      "Update Own Articles",
     ];
 
     const LectorPrivileges = [
-      "Make Comments",
+      "Create Comments",
       "Read Articles",
       "Delete Own User",
     ];
     const WriterPrivileges = [
-      "Make Comments",
-      "Create Article",
-      "Update Own Articles",
-      "Delete Own User",
+      "Create Articles",
       "Read Articles",
+      "Update Own Articles",
+      "Create Comments",
+      "Delete Own User",
     ];
     const EditorPrivileges = [
-      "Make Comments",
-      "Create Article",
-      "Update Own Articles",
-      "Delete Own User",
+      "Create Articles",
       "Read Articles",
       "Update Articles",
-      "Delete Comments",
+      "Update Own Articles",
+
+      "Create Comments",
       "Update Comments",
+      "Delete Comments",
+
+      "Delete Own User",
     ];
 
     for (let indice = 1; indice <= 4; indice++) {
@@ -161,8 +170,8 @@ module.exports = {
       defaults: {
         firstname: "Federico",
         lastname: "Trotta",
-        email: "admin@admin.com",
-        password: "admin",
+        email: "trotta@trotta.com",
+        password: "trotta",
         roleId: 1,
       },
     });
@@ -187,9 +196,17 @@ module.exports = {
   aboutPage: async (req, res) => {
     let user = req.user;
     let token = "You can not see the token because not logged in.";
+
     if (user) {
-      token = jwt.sign({ sub: req.user.id }, process.env.JWT_SECRET_TEXT);
+      const userInDB = await User.findOne({
+        where: { id: user.id },
+      });
+      token = jwt.sign(
+        { roleId: userInDB.roleId },
+        process.env.JWT_SECRET_TEXT
+      );
     }
+
     res.render("aboutPage", { user, token });
   },
 };
