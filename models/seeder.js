@@ -108,18 +108,4 @@ module.exports = seeders = [
     updatedAt: "2021-11-04T08:17:27.506Z",
     userId: 1,
   },
-  {
-    id: 7,
-    title: "Samu the samoyed",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/f/f6/11.10.2015_Samoyed_%28cropped%29.jpg",
-    imageBlob: null,
-    content: `<p> The Samoyed has been identified as a basal breed that predates the emergence of the modern breeds in the 19th century.[2] A genomic study of two dog specimens that are nearly 100 years old and obtained from the Nenets people on the Yamal Peninsula found that these are related to two specimens dated 2,000 years old and 850 years old, which suggests continuity of the lineage in this region. The two 100 year old dogs were closely related with the Samoyed breed, which indicates that the ancient arctic lineage lives on in the modern Samoyed dog.[3]</p> <p> Samoyeds were used for hunting, herding reindeer, and hauling sledges for the Samoyede people in Siberia.[4]</p> <h3>Appearance and characteristics </h3> <p> The AKC Standard requires 45–65 pounds (20–29 kg) and 21–23.5 inches (53–60 cm) at the shoulder for males, and 35–50 pounds (16–23 kg) and 19–21 inches (48–53 cm) for females.[5] The UK Kennel Club Standard requires 51–56 centimetres (20–22 in) for males, and 46–51 centimetres (18–20 in) for females. Samoyed eyes are usually black or brown and are almond in shape. Samoyeds with eyes of other colors like blue exist but are not allowed in the show ring. The Samoyed is in the in its family, the Spitz family. Samoyed ears are thick and covered with fur, triangular in shape, and erect. They are almost always white but can often have a light to dark brown tint (known as sually around the tips of the ears.</p> `,
-    resume:
-      "He is samo the samoyed. The whitest lomito ever existed. He can smile all day and sleep all night.",
-    slug: "samu-the-samoyed",
-    createdAt: "2021-11-04T08:08:21.444Z",
-    updatedAt: "2021-11-04T08:09:50.984Z",
-    userId: 1,
-  },
 ];

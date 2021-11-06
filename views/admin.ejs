@@ -75,17 +75,13 @@
                   </td>
 
                   <td>
-                    <a
-                      href="/admin/updateArticle/<%- singleBlog.slug %>"
-                      class="btn btn-outline-primary"
-                      >Update</a
-                    >
+                    <a href="/admin/updateArticle/<%- singleBlog.slug %>"
+                      ><i class="fas fa-edit"></i
+                    ></a>
                     <% if (user.roleId === 1) { %>
-                    <a
-                      href="/admin/deleteArticle/<%- singleBlog.slug %>"
-                      class="btn btn-danger"
-                      >Delete</a
-                    >
+                    <a href="/admin/deleteArticle/<%- singleBlog.slug %>"
+                      ><i class="fas fa-trash-alt"></i>
+                    </a>
                     <% } %>
                   </td>
                 </tr>
@@ -143,11 +139,9 @@
                     />
                   </td>
                   <td>
-                    <a
-                      href="/admin/delete/<%- user.id %>"
-                      class="btn btn-danger"
-                      >Delete User</a
-                    >
+                    <a href="/admin/delete/<%- user.id %>"
+                      ><i class="fas fa-trash-alt"></i
+                    ></a>
                   </td>
                 </tr>
                 <% }); %>

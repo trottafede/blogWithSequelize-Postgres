@@ -157,11 +157,11 @@ module.exports = {
     }
 
     const [user, created] = await User.findOrCreate({
-      where: { email: "admin@gmail.com" },
+      where: { email: "admin@admin.com" },
       defaults: {
         firstname: "Federico",
         lastname: "Trotta",
-        email: "admin@gmail.com",
+        email: "admin@admin.com",
         password: "admin",
         roleId: 1,
       },

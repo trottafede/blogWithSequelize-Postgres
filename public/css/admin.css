@@ -50,4 +50,9 @@
   table tbody td {
     text-align: center;
   }
+
+  table i {
+    color: red;
+    margin-left: 10px;
+  }
 }
